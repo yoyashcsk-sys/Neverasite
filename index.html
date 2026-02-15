@@ -4,12 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nevera – Cinematic</title>
+<title>TrustivaMarket – Cinematic</title>
 
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- GSAP -->
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/Observer.min.js"></script>
 
@@ -20,11 +18,48 @@ html,body{
   height:100%;
   background:#000;
   color:#fff;
-  font-family:'Inter',Helvetica Neue,Arial,sans-serif;
+  font-family:Inter,sans-serif;
   overflow:hidden;
 }
 
-/* ================= SECTIONS ================= */
+/* SAFE AREA */
+body{
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.8s;
+}
+#loader.hide{opacity:0;pointer-events:none}
+
+.loader-line{
+  width:160px;
+  height:1px;
+  background:rgba(255,255,255,.2);
+  overflow:hidden;
+}
+.loader-line span{
+  display:block;
+  width:40%;
+  height:100%;
+  background:#fff;
+  animation:load 1.2s infinite;
+}
+@keyframes load{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(300%)}
+}
+
+/* SECTIONS */
 .section{
   position:fixed;
   inset:0;
@@ -32,11 +67,11 @@ html,body{
   align-items:center;
   justify-content:center;
   opacity:0;
-  pointer-events:none;
+  visibility:hidden;
 }
 .section.active{
   opacity:1;
-  pointer-events:auto;
+  visibility:visible;
 }
 .section video{
   position:absolute;
@@ -52,12 +87,12 @@ html,body{
   background:rgba(0,0,0,.45);
 }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 .content{
   position:relative;
   z-index:2;
-  max-width:780px;
   text-align:center;
+  max-width:780px;
   padding:20px;
 }
 h1,h2{
@@ -66,31 +101,23 @@ h1,h2{
   font-weight:300;
 }
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
-h2{font-size:clamp(2rem,4vw,3.2rem)}
-p{
-  font-size:1.05rem;
-  opacity:.9;
-  line-height:1.6;
-}
+h2{font-size:clamp(2rem,4vw,3rem)}
+p{opacity:.9;line-height:1.6}
 
-/* ================= BUTTONS ================= */
-.explore-btn,.discover-btn{
+/* BUTTON */
+button{
   margin-top:40px;
   padding:14px 48px;
-  background:transparent;
   border:1px solid rgba(255,255,255,.6);
+  background:transparent;
   color:#fff;
   letter-spacing:.35em;
   font-size:.7rem;
   cursor:pointer;
-  transition:.4s;
 }
-.explore-btn:hover,.discover-btn:hover{
-  background:#fff;
-  color:#000;
-}
+button:hover{background:#fff;color:#000}
 
-/* ================= LOGO ================= */
+/* LOGO */
 .logo{
   position:fixed;
   top:25px;
@@ -99,7 +126,7 @@ p{
 }
 .logo img{width:60px}
 
-/* ================= LEFT INDEX ================= */
+/* INDEX */
 .section-index{
   position:fixed;
   left:30px;
@@ -115,18 +142,16 @@ p{
   color:#fff;
   text-decoration:none;
   opacity:.35;
-  transition:.3s;
 }
 .section-index a.active{opacity:1}
 
-/* ================= HAMBURGER ================= */
+/* MENU */
 .menu-btn{
   position:fixed;
   top:30px;
   right:30px;
   z-index:100;
   width:30px;
-  height:22px;
   cursor:pointer;
 }
 .menu-btn span{
@@ -136,7 +161,6 @@ p{
   margin:6px 0;
 }
 
-/* ================= FULLSCREEN MENU ================= */
 .rimac-menu{
   position:fixed;
   inset:0;
@@ -150,6 +174,7 @@ p{
   opacity:1;
   pointer-events:auto;
 }
+
 .rimac-top{
   position:absolute;
   top:30px;
@@ -157,7 +182,6 @@ p{
   right:40px;
   display:flex;
   justify-content:space-between;
-  letter-spacing:.35em;
 }
 .rimac-close{cursor:pointer}
 
@@ -168,78 +192,96 @@ p{
   display:flex;
   gap:80px;
 }
+
 .main-links a{
   display:block;
   font-size:1.6rem;
-  letter-spacing:.25em;
   color:#fff;
   text-decoration:none;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
-.main-links span{
-  font-size:.7rem;
-  opacity:.4;
-  margin-right:18px;
-}
+.main-links span{opacity:.4;margin-right:10px}
+
 .sub-links a{
   display:block;
-  font-size:.75rem;
+  font-size:.7rem;
   letter-spacing:.3em;
-  color:#fff;
   opacity:.6;
-  margin-bottom:14px;
+  margin-bottom:12px;
   text-decoration:none;
 }
 .sub-links a:hover{opacity:1}
+
+/* MOBILE */
+@media(max-width:768px){
+  .rimac-links{
+    left:30px;
+    right:30px;
+    flex-direction:column;
+    gap:40px;
+  }
+  .main-links a{font-size:1.2rem}
+}
+
+/* END CSS */
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-line"><span></span></div>
+</div>
+
 <!-- LOGO -->
-<div class="logo">
-  <img src="logo.jpg">
-</div>
+<div class="logo"><img src="logo.jpg"></div>
 
-<!-- LEFT INDEX -->
+<!-- INDEX -->
 <div class="section-index">
-  <a href="#" data-i="0" class="active">01 NEVERA</a>
-  <a href="#" data-i="1">02 TECHNOLOGY</a>
-  <a href="#" data-i="2">03 DEVELOPMENT</a>
-  <a href="#" data-i="3">04 ABOUT US</a>
+  <a data-i="0" class="active">01 NEVERA</a>
+  <a data-i="1">02 TECHNOLOGY</a>
+  <a data-i="2">03 DEVELOPMENT</a>
+  <a data-i="3">04 ABOUT US</a>
 </div>
 
-<!-- HAMBURGER -->
+<!-- MENU BUTTON -->
 <div class="menu-btn" id="menuBtn">
   <span></span><span></span><span></span>
 </div>
 
-<!-- FULLSCREEN MENU -->
+<!-- MENU -->
 <div class="rimac-menu" id="rimacMenu">
   <div class="rimac-top">
-    <div>RIMAC</div>
-    <div class="rimac-close" id="menuClose">✕</div>
+    <div>MENU</div>
+    <div id="menuClose">✕</div>
   </div>
 
   <div class="rimac-links">
     <div class="main-links">
-      <a href="#" data-i="0"><span>01</span> NEVERA</a>
-      <a href="#" data-i="1"><span>02</span> TECHNOLOGY</a>
-      <a href="#" data-i="2"><span>03</span> DEVELOPMENT</a>
-      <a href="#" data-i="3"><span>04</span> ABOUT US</a>
+      <a data-i="0"><span>01</span> NEVERA</a>
+      <a data-i="1"><span>02</span> TECHNOLOGY</a>
+      <a data-i="2"><span>03</span> DEVELOPMENT</a>
+      <a data-i="3"><span>04</span> ABOUT US</a>
     </div>
+
     <div class="sub-links">
-      <a href="#">CAREERS ↗</a>
-      <a href="#">MEDIA CENTER ↗</a>
-      <a href="#">CONTACT</a>
+      <a>CAREERS ↗</a>
+      <a>FACTORY TOURS</a>
+      <a>CAMPUS ↗</a>
+      <a>E_STORE ↗</a>
+      <a>MEDIA CENTER ↗</a>
+      <a>PARTNERS MAP</a>
+      <a>CONTACT</a>
     </div>
   </div>
 </div>
 
-<!-- PAGE 1 -->
+<!-- SECTIONS -->
+
 <section class="section active">
-  <video autoplay muted loop playsinline preload="auto">
-    <source src="hero.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline>
+    <source src="Hero.mp4">
   </video>
   <div class="content">
     <h1>NEVERA</h1>
@@ -247,48 +289,36 @@ p{
   </div>
 </section>
 
-<!-- PAGE 2 -->
 <section class="section">
-  <video autoplay muted loop playsinline preload="auto">
-    <source src="tech-video.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline>
+    <source src="Techno.mp4">
   </video>
   <div class="content">
     <h2>TECHNOLOGY</h2>
-    <p>
-      From bespoke component design and engineering to full series production.
-      We are the leader in high-performance EV technology.
-    </p>
-    <button class="explore-btn">EXPLORE</button>
+    <p>Leader in EV performance innovation.</p>
+    <button>EXPLORE</button>
   </div>
 </section>
 
-<!-- PAGE 3 -->
 <section class="section">
-  <video autoplay muted loop playsinline preload="auto">
-    <source src="dev-video.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline>
+    <source src="Dev.mp4">
   </video>
   <div class="content">
     <h2>DEVELOPMENT</h2>
-    <p>
-      We are taking you behind the scenes of globally homologated electric
-      hypercar design, engineering and testing.
-    </p>
-    <button class="discover-btn">DISCOVER</button>
+    <p>Engineering and testing at the highest level.</p>
+    <button>DISCOVER</button>
   </div>
 </section>
 
-<!-- PAGE 4 -->
 <section class="section">
-  <video autoplay muted loop playsinline preload="auto">
-    <source src="about-video.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline>
+    <source src="About.mp4">
   </video>
   <div class="content">
     <h2>ABOUT US</h2>
-    <p>
-      We challenge convention and push technology to the edge of possibility.
-      Welcome to Rimac. This is our story.
-    </p>
-    <button class="explore-btn">EXPLORE</button>
+    <p>Welcome to the future of performance.</p>
+    <button>EXPLORE</button>
   </div>
 </section>
 
@@ -297,66 +327,72 @@ gsap.registerPlugin(Observer);
 
 const sections = gsap.utils.toArray(".section");
 const indexLinks = document.querySelectorAll(".section-index a");
-let current = 0, animating = false;
+const menu = document.getElementById("rimacMenu");
+
+let current=0, animating=false;
 
 function syncIndex(){
   indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
 }
 
-function goToSection(index,direction){
-  if(animating) return;
+function controlVideos(){
+  sections.forEach((s,i)=>{
+    const v=s.querySelector("video");
+    if(!v)return;
+    i===current ? v.play() : v.pause();
+  });
+}
+
+function goToSection(i,dir){
+  if(animating||i===current)return;
   animating=true;
+
   const from=sections[current];
-  const to=sections[index];
+  const to=sections[i];
   to.classList.add("active");
 
   gsap.timeline({
-    onComplete:()=>{
+    onComplete(){
       from.classList.remove("active");
-      current=index;
+      current=i;
       syncIndex();
+      controlVideos();
       animating=false;
     }
   })
-  .to(from,{opacity:0,y:-direction*80,duration:.6})
-  .fromTo(to,{y:direction*80},{opacity:1,y:0,duration:.6},0);
+  .to(from,{opacity:0,y:-dir*80,duration:.6})
+  .fromTo(to,{opacity:0,y:dir*80},{opacity:1,y:0,duration:.6},0);
 }
 
 Observer.create({
   type:"wheel,touch",
   preventDefault:true,
-  onDown(){
-    let n=current+1;
-    if(n>=sections.length) n=0;
-    goToSection(n,1);
-  },
-  onUp(){
-    let p=current-1;
-    if(p<0) p=sections.length-1;
-    goToSection(p,-1);
-  }
+  tolerance:8,
+  onDown:()=>goToSection((current+1)%sections.length,1),
+  onUp:()=>goToSection((current-1+sections.length)%sections.length,-1)
 });
 
-indexLinks.forEach(link=>{
-  link.onclick=e=>{
-    e.preventDefault();
-    const i=+link.dataset.i;
-    if(i!==current) goToSection(i,i>current?1:-1);
-  };
+indexLinks.forEach(l=>{
+  l.onclick=()=>goToSection(+l.dataset.i,1);
 });
 
 /* MENU */
-const menu=document.getElementById("rimacMenu");
 menuBtn.onclick=()=>menu.classList.add("active");
 menuClose.onclick=()=>menu.classList.remove("active");
 
-menu.querySelectorAll(".main-links a").forEach(link=>{
-  link.onclick=e=>{
-    e.preventDefault();
-    const i=+link.dataset.i;
+menu.querySelectorAll(".main-links a").forEach(l=>{
+  l.onclick=()=>{
     menu.classList.remove("active");
-    goToSection(i,i>current?1:-1);
+    goToSection(+l.dataset.i,1);
   };
+});
+
+/* LOADER */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("hide");
+    controlVideos();
+  },800);
 });
 </script>
 
