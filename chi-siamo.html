@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi Siamo | SR Car Solution</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* VIDEO BACKGROUND */
+video{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* DARK OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+}
+
+/* CONTENT */
+.content{
+  position:relative;
+  z-index:2;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+h1{
+  font-size:clamp(2rem,5vw,4rem);
+  letter-spacing:.3em;
+  font-weight:300;
+  margin-bottom:20px;
+}
+
+p{
+  max-width:650px;
+  line-height:1.6;
+  opacity:.85;
+}
+
+/* BUTTON */
+.back-btn{
+  margin-top:40px;
+  padding:14px 40px;
+  border:1px solid #fff;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:.3em;
+  transition:.4s;
+}
+
+.back-btn:hover{
+  background:#fff;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video autoplay muted loop playsinline>
+  <source src="videos/chi-siamo.mp4" type="video/mp4">
+</video>
+
+<!-- OVERLAY -->
+<div class="overlay"></div>
+
+<!-- CONTENT -->
+<div class="content">
+  <h1>CHI SIAMO</h1>
+  <p>
+    SR Car Solution nasce dalla passione per le automobili e dalla volontà
+    di offrire servizi di alta qualità. Uniamo esperienza, tecnologia e
+    precisione per garantire risultati eccellenti e soddisfazione totale
+    del cliente.
+  </p>
+
+  <a href="index.html" class="back-btn">BACK</a>
+</div>
+
+</body>
+</html>
