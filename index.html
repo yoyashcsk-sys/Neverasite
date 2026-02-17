@@ -20,9 +20,26 @@ html,body{
   color:#fff;
   font-family:'Inter',sans-serif;
   overflow:hidden;
+  touch-action:none;
 }
 
-/* SECTION */
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#loader .line{
+  width:0%;
+  height:2px;
+  background:#fff;
+}
+
+/* SECTIONS */
 .section{
   position:fixed;
   inset:0;
@@ -31,14 +48,11 @@ html,body{
   justify-content:center;
   opacity:0;
   pointer-events:none;
-  transition:opacity .8s ease;
 }
-
 .section.active{
   opacity:1;
   pointer-events:auto;
 }
-
 .section video{
   position:absolute;
   inset:0;
@@ -46,12 +60,11 @@ html,body{
   height:100%;
   object-fit:cover;
 }
-
 .section::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.45);
 }
 
 /* CONTENT */
@@ -59,38 +72,35 @@ html,body{
   position:relative;
   z-index:2;
   text-align:center;
-  max-width:90%;
+  max-width:700px;
+  padding:0 20px;
 }
-
 h1,h2{
   letter-spacing:.25em;
   margin-bottom:20px;
   font-weight:300;
 }
-
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
 h2{font-size:clamp(2rem,4vw,3rem)}
-
-p{
-  opacity:.8;
-  font-size:14px;
-}
+p{opacity:.9;line-height:1.6}
 
 /* BUTTON */
-.explore-btn,.discover-btn{
+button{
   margin-top:30px;
   padding:14px 48px;
-  border:1px solid rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.6);
   background:transparent;
   color:#fff;
   letter-spacing:.3em;
   cursor:pointer;
-  transition:.3s;
+  transition:.4s;
 }
-
-.explore-btn:hover,.discover-btn:hover{
+button:hover{
   background:#fff;
   color:#000;
+}
+button:active{
+  transform:scale(0.95);
 }
 
 /* LOGO */
@@ -102,7 +112,26 @@ p{
 }
 .logo img{width:70px}
 
-/* MENU BUTTON */
+/* LEFT INDEX */
+.section-index{
+  position:fixed;
+  left:30px;
+  bottom:40px;
+  z-index:60;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  font-size:.75rem;
+  letter-spacing:.35em;
+}
+.section-index a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.35;
+}
+.section-index a.active{opacity:1}
+
+/* MENU */
 .menu-btn{
   position:fixed;
   top:30px;
@@ -110,7 +139,6 @@ p{
   z-index:100;
   cursor:pointer;
 }
-
 .menu-btn span{
   display:block;
   width:25px;
@@ -119,7 +147,6 @@ p{
   margin:6px 0;
 }
 
-/* MENU */
 .rimac-menu{
   position:fixed;
   inset:0;
@@ -127,16 +154,12 @@ p{
   z-index:200;
   opacity:0;
   pointer-events:none;
-  transform:translateY(-20px);
-  transition:.5s;
+  transition:.6s;
 }
-
 .rimac-menu.active{
   opacity:1;
   pointer-events:auto;
-  transform:translateY(0);
 }
-
 .rimac-top{
   position:absolute;
   top:30px;
@@ -144,94 +167,69 @@ p{
   right:40px;
   display:flex;
   justify-content:space-between;
-  font-size:14px;
 }
-
-/* LINKS */
 .rimac-links{
   position:absolute;
-  top:120px;
-  left:80px;
+  top:140px;
+  left:120px;
 }
-
 .main-links a{
   display:block;
   font-size:1.6rem;
   margin-bottom:20px;
-  color:#fff;
   cursor:pointer;
 }
 
-.sub-links{
-  margin-top:40px;
-}
-
-.sub-links a{
-  display:block;
-  font-size:.8rem;
-  margin-bottom:12px;
-  color:#fff;
-  opacity:.6;
-}
-
-.sub-links a:hover{opacity:1}
-
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:768px){
-  .rimac-links{
-    left:30px;
-  }
-
-  h1{font-size:2rem}
-  h2{font-size:1.6rem}
+  h1{font-size:2rem;letter-spacing:.15em}
+  h2{font-size:1.6rem;letter-spacing:.15em}
+  .section-index{left:15px;bottom:20px;font-size:.6rem}
+  .logo img{width:50px}
+  .menu-btn{right:20px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
+<!-- LOADER -->
+<div id="loader"><div class="line"></div></div>
+
 <div class="logo">
   <img src="sr-logo.png">
 </div>
 
-<!-- MENU BUTTON -->
+<div class="section-index">
+  <a data-i="0" class="active">01 NEVERA</a>
+  <a data-i="1">02 TECHNOLOGY</a>
+  <a data-i="2">03 DEVELOPMENT</a>
+  <a data-i="3">04 ABOUT US</a>
+</div>
+
 <div class="menu-btn" id="menuBtn">
   <span></span><span></span><span></span>
 </div>
 
-<!-- MENU -->
 <div class="rimac-menu" id="rimacMenu">
   <div class="rimac-top">
     <div>RIMAC</div>
-    <div id="menuClose" style="cursor:pointer">✕</div>
+    <div id="menuClose">✕</div>
   </div>
 
   <div class="rimac-links">
     <div class="main-links">
-      <a data-i="0">NEVERA & NEVERA R</a>
-      <a data-i="2">DEVELOPMENT</a>
+      <a data-i="0">NEVERA</a>
       <a data-i="1">TECHNOLOGY</a>
+      <a data-i="2">DEVELOPMENT</a>
       <a data-i="3">ABOUT US</a>
-    </div>
-
-    <div class="sub-links">
-      <a>CAREERS ↗</a>
-      <a>FACTORY TOURS</a>
-      <a>CAMPUS ↗</a>
-      <a>E_STORE ↗</a>
-      <a>MEDIA CENTER ↗</a>
-      <a>PARTNERS MAP</a>
-      <a>CONTACT</a>
     </div>
   </div>
 </div>
 
 <!-- SECTIONS -->
 <section class="section active">
-  <video autoplay muted loop playsinline>
-    <source src="hero.mp4">
-  </video>
+  <video autoplay muted loop playsinline preload="auto" src="hero.mp4"></video>
   <div class="content">
     <h1>NEVERA</h1>
     <p>Capable of exceptional speeds.</p>
@@ -239,32 +237,26 @@ p{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline>
-    <source src="tech-video.mp4">
-  </video>
+  <video muted loop playsinline preload="auto" src="tech-video.mp4"></video>
   <div class="content">
     <h2>TECHNOLOGY</h2>
-    <button class="explore-btn" onclick="openPage('car-detailing.html')">EXPLORE</button>
+    <button onclick="openPage('car-detailing.html')">EXPLORE</button>
   </div>
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline>
-    <source src="dev-video.mp4">
-  </video>
+  <video muted loop playsinline preload="auto" src="dev-video.mp4"></video>
   <div class="content">
     <h2>DEVELOPMENT</h2>
-    <button class="discover-btn" onclick="openPage('servizi.html')">DISCOVER</button>
+    <button onclick="openPage('servizi.html')">DISCOVER</button>
   </div>
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline>
-    <source src="about-video.mp4">
-  </video>
+  <video muted loop playsinline preload="auto" src="about-video.mp4"></video>
   <div class="content">
     <h2>ABOUT US</h2>
-    <button class="explore-btn" onclick="openPage('chi-siamo.html')">EXPLORE</button>
+    <button onclick="openPage('chi-siamo.html')">EXPLORE</button>
   </div>
 </section>
 
@@ -272,47 +264,98 @@ p{
 gsap.registerPlugin(Observer);
 
 const sections = gsap.utils.toArray(".section");
-let current = 0;
+const indexLinks = document.querySelectorAll(".section-index a");
+const videos = document.querySelectorAll("video");
 
-function goTo(index){
-  gsap.to(sections[current], {opacity:0, duration:0.6});
-  current = index;
-  gsap.to(sections[current], {opacity:1, duration:0.6});
-  
-  sections.forEach(s=>s.classList.remove("active"));
-  sections[current].classList.add("active");
+const menuBtn = document.getElementById("menuBtn");
+const menuClose = document.getElementById("menuClose");
+const menu = document.getElementById("rimacMenu");
+
+let current = 0;
+let animating = false;
+
+/* LOADER */
+gsap.to("#loader .line",{
+  width:"100%",
+  duration:1.2,
+  onComplete:()=>{
+    gsap.to("#loader",{opacity:0,duration:0.5,onComplete:()=>{
+      document.getElementById("loader").style.display="none";
+    }});
+  }
+});
+
+function playVideo(index){
+  videos.forEach((v,i)=>{
+    v.pause();
+    if(i===index){
+      v.currentTime = 0;
+      v.play();
+    }
+  });
 }
 
-/* SCROLL CONTROL (SMOOTH) */
+function goTo(index){
+  if(animating || index===current) return;
+  animating = true;
+
+  let currentSection = sections[current];
+  let nextSection = sections[index];
+
+  nextSection.classList.add("active");
+
+  gsap.timeline({
+    onComplete:()=>{
+      currentSection.classList.remove("active");
+      current=index;
+      animating=false;
+      syncIndex();
+      playVideo(index);
+    }
+  })
+  .to(currentSection,{opacity:0,scale:1.05,duration:0.7})
+  .fromTo(nextSection,{opacity:0,scale:1.1},{
+    opacity:1,scale:1,duration:0.9
+  },0);
+}
+
+function syncIndex(){
+  indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
+}
+
 Observer.create({
   type:"wheel,touch",
-  wheelSpeed:-1,
-  tolerance:10,
   onDown:()=>goTo((current+1)%sections.length),
-  onUp:()=>goTo((current-1+sections.length)%sections.length)
+  onUp:()=>goTo((current-1+sections.length)%sections.length),
+  tolerance:10
+});
+
+/* INDEX CLICK */
+indexLinks.forEach(link=>{
+  link.onclick=e=>{
+    e.preventDefault();
+    goTo(+link.dataset.i);
+  }
 });
 
 /* MENU */
-const menu=document.getElementById("rimacMenu");
-const menuBtn=document.getElementById("menuBtn");
-const menuClose=document.getElementById("menuClose");
-
 menuBtn.onclick=()=>menu.classList.add("active");
 menuClose.onclick=()=>menu.classList.remove("active");
 
-/* MENU NAVIGATION */
 document.querySelectorAll(".main-links a").forEach(link=>{
   link.onclick=()=>{
-    const i=parseInt(link.dataset.i);
-    goTo(i);
+    goTo(+link.dataset.i);
     menu.classList.remove("active");
-  }
+  };
 });
 
 /* PAGE NAV */
 function openPage(page){
   window.location.href=page;
 }
+
+/* INIT */
+playVideo(0);
 </script>
 
 </body>
