@@ -22,7 +22,7 @@ html,body{
   overflow:hidden;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
   position:fixed;
   inset:0;
@@ -31,11 +31,14 @@ html,body{
   justify-content:center;
   opacity:0;
   pointer-events:none;
+  transition:opacity .8s ease;
 }
+
 .section.active{
   opacity:1;
   pointer-events:auto;
 }
+
 .section video{
   position:absolute;
   inset:0;
@@ -43,11 +46,12 @@ html,body{
   height:100%;
   object-fit:cover;
 }
+
 .section::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.5);
 }
 
 /* CONTENT */
@@ -55,25 +59,38 @@ html,body{
   position:relative;
   z-index:2;
   text-align:center;
-  padding:20px;
+  max-width:90%;
 }
+
 h1,h2{
   letter-spacing:.25em;
   margin-bottom:20px;
   font-weight:300;
 }
+
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
-h2{font-size:clamp(2rem,4vw,3.2rem)}
-p{opacity:.9}
+h2{font-size:clamp(2rem,4vw,3rem)}
+
+p{
+  opacity:.8;
+  font-size:14px;
+}
 
 /* BUTTON */
 .explore-btn,.discover-btn{
   margin-top:30px;
-  padding:12px 40px;
-  border:1px solid #fff;
+  padding:14px 48px;
+  border:1px solid rgba(255,255,255,.5);
   background:transparent;
   color:#fff;
+  letter-spacing:.3em;
   cursor:pointer;
+  transition:.3s;
+}
+
+.explore-btn:hover,.discover-btn:hover{
+  background:#fff;
+  color:#000;
 }
 
 /* LOGO */
@@ -83,24 +100,9 @@ p{opacity:.9}
   left:30px;
   z-index:60;
 }
-.logo img{width:60px}
+.logo img{width:70px}
 
-/* INDEX */
-.section-index{
-  position:fixed;
-  left:30px;
-  bottom:40px;
-  z-index:60;
-}
-.section-index a{
-  display:block;
-  margin-bottom:10px;
-  opacity:.4;
-  color:#fff;
-}
-.section-index a.active{opacity:1}
-
-/* MENU */
+/* MENU BUTTON */
 .menu-btn{
   position:fixed;
   top:30px;
@@ -108,14 +110,16 @@ p{opacity:.9}
   z-index:100;
   cursor:pointer;
 }
+
 .menu-btn span{
   display:block;
-  height:2px;
   width:25px;
+  height:2px;
   background:#fff;
   margin:6px 0;
 }
 
+/* MENU */
 .rimac-menu{
   position:fixed;
   inset:0;
@@ -123,11 +127,14 @@ p{opacity:.9}
   z-index:200;
   opacity:0;
   pointer-events:none;
+  transform:translateY(-20px);
   transition:.5s;
 }
+
 .rimac-menu.active{
   opacity:1;
   pointer-events:auto;
+  transform:translateY(0);
 }
 
 .rimac-top{
@@ -137,21 +144,26 @@ p{opacity:.9}
   right:40px;
   display:flex;
   justify-content:space-between;
+  font-size:14px;
 }
 
+/* LINKS */
 .rimac-links{
   position:absolute;
-  top:140px;
-  left:120px;
-  display:flex;
-  gap:80px;
+  top:120px;
+  left:80px;
 }
 
 .main-links a{
   display:block;
-  font-size:1.5rem;
+  font-size:1.6rem;
   margin-bottom:20px;
   color:#fff;
+  cursor:pointer;
+}
+
+.sub-links{
+  margin-top:40px;
 }
 
 .sub-links a{
@@ -161,7 +173,18 @@ p{opacity:.9}
   color:#fff;
   opacity:.6;
 }
+
 .sub-links a:hover{opacity:1}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+  .rimac-links{
+    left:30px;
+  }
+
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+}
 </style>
 </head>
 
@@ -181,11 +204,10 @@ p{opacity:.9}
 <div class="rimac-menu" id="rimacMenu">
   <div class="rimac-top">
     <div>RIMAC</div>
-    <div id="menuClose">✕</div>
+    <div id="menuClose" style="cursor:pointer">✕</div>
   </div>
 
   <div class="rimac-links">
-
     <div class="main-links">
       <a data-i="0">NEVERA & NEVERA R</a>
       <a data-i="2">DEVELOPMENT</a>
@@ -202,14 +224,13 @@ p{opacity:.9}
       <a>PARTNERS MAP</a>
       <a>CONTACT</a>
     </div>
-
   </div>
 </div>
 
-<!-- PAGE 1 -->
+<!-- SECTIONS -->
 <section class="section active">
   <video autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
+    <source src="hero.mp4">
   </video>
   <div class="content">
     <h1>NEVERA</h1>
@@ -217,65 +238,78 @@ p{opacity:.9}
   </div>
 </section>
 
-<!-- PAGE 2 -->
 <section class="section">
   <video autoplay muted loop playsinline>
-    <source src="tech-video.mp4" type="video/mp4">
+    <source src="tech-video.mp4">
   </video>
   <div class="content">
     <h2>TECHNOLOGY</h2>
-    <p>From bespoke component design to production.</p>
-    <button onclick="openPage('car-detailing.html')">EXPLORE</button>
+    <button class="explore-btn" onclick="openPage('car-detailing.html')">EXPLORE</button>
   </div>
 </section>
 
-<!-- PAGE 3 -->
 <section class="section">
   <video autoplay muted loop playsinline>
-    <source src="dev-video.mp4" type="video/mp4">
+    <source src="dev-video.mp4">
   </video>
   <div class="content">
     <h2>DEVELOPMENT</h2>
-    <p>Behind the scenes of hypercar engineering.</p>
-    <button onclick="openPage('servizi.html')">DISCOVER</button>
+    <button class="discover-btn" onclick="openPage('servizi.html')">DISCOVER</button>
   </div>
 </section>
 
-<!-- PAGE 4 -->
 <section class="section">
   <video autoplay muted loop playsinline>
-    <source src="about-video.mp4" type="video/mp4">
+    <source src="about-video.mp4">
   </video>
   <div class="content">
     <h2>ABOUT US</h2>
-    <p>We push technology to the edge.</p>
-    <button onclick="openPage('chi-siamo.html')">EXPLORE</button>
+    <button class="explore-btn" onclick="openPage('chi-siamo.html')">EXPLORE</button>
   </div>
 </section>
 
 <script>
 gsap.registerPlugin(Observer);
 
-const sections = document.querySelectorAll(".section");
+const sections = gsap.utils.toArray(".section");
 let current = 0;
 
-function show(i){
+function goTo(index){
+  gsap.to(sections[current], {opacity:0, duration:0.6});
+  current = index;
+  gsap.to(sections[current], {opacity:1, duration:0.6});
+  
   sections.forEach(s=>s.classList.remove("active"));
-  sections[i].classList.add("active");
+  sections[current].classList.add("active");
 }
 
+/* SCROLL CONTROL (SMOOTH) */
 Observer.create({
-  type:"wheel",
-  onDown:()=>{current=(current+1)%sections.length;show(current);},
-  onUp:()=>{current=(current-1+sections.length)%sections.length;show(current);}
+  type:"wheel,touch",
+  wheelSpeed:-1,
+  tolerance:10,
+  onDown:()=>goTo((current+1)%sections.length),
+  onUp:()=>goTo((current-1+sections.length)%sections.length)
 });
 
 /* MENU */
 const menu=document.getElementById("rimacMenu");
+const menuBtn=document.getElementById("menuBtn");
+const menuClose=document.getElementById("menuClose");
+
 menuBtn.onclick=()=>menu.classList.add("active");
 menuClose.onclick=()=>menu.classList.remove("active");
 
-/* PAGE OPEN */
+/* MENU NAVIGATION */
+document.querySelectorAll(".main-links a").forEach(link=>{
+  link.onclick=()=>{
+    const i=parseInt(link.dataset.i);
+    goTo(i);
+    menu.classList.remove("active");
+  }
+});
+
+/* PAGE NAV */
 function openPage(page){
   window.location.href=page;
 }
