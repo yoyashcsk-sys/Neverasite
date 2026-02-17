@@ -19,63 +19,106 @@ body{
   font-family:'Inter',sans-serif;
   background:#000;
   color:#fff;
-  overflow:hidden;
+  overflow-x:hidden;
 }
 
-/* VIDEO BACKGROUND */
-video{
-  position:fixed;
+/* HERO */
+.hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero video{
+  position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* DARK OVERLAY */
-.overlay{
-  position:fixed;
+.hero::after{
+  content:"";
+  position:absolute;
   inset:0;
   background:rgba(0,0,0,.6);
 }
 
-/* CONTENT */
-.content{
+.hero-content{
   position:relative;
   z-index:2;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
   padding:20px;
 }
 
-h1{
+.hero h1{
   font-size:clamp(2rem,5vw,4rem);
   letter-spacing:.3em;
   font-weight:300;
   margin-bottom:20px;
 }
 
-p{
-  max-width:650px;
-  line-height:1.6;
+.hero p{
+  max-width:600px;
+  margin:auto;
   opacity:.85;
 }
 
-/* BUTTON */
-.back-btn{
-  margin-top:40px;
-  padding:14px 40px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
-  letter-spacing:.3em;
+/* CONTENT */
+.section{
+  padding:100px 10%;
+  background:#0a0a0a;
+}
+
+.section h2{
+  margin-bottom:20px;
+  letter-spacing:.2em;
+}
+
+.section p{
+  max-width:900px;
+  line-height:1.8;
+  opacity:.85;
+}
+
+/* VALUES GRID */
+.values{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:#111;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.1);
   transition:.4s;
 }
 
-.back-btn:hover{
+.card:hover{
+  border-color:#ff2c2c;
+  box-shadow:0 0 20px rgba(255,44,44,.4);
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+/* BUTTON */
+.back{
+  display:inline-block;
+  margin-top:60px;
+  padding:14px 40px;
+  border:1px solid #fff;
+  text-decoration:none;
+  color:#fff;
+  letter-spacing:.3em;
+}
+
+.back:hover{
   background:#fff;
   color:#000;
 }
@@ -84,26 +127,49 @@ p{
 
 <body>
 
-<!-- VIDEO -->
-<video autoplay muted loop playsinline>
-  <source src="videos/chi-siamo.mp4" type="video/mp4">
-</video>
+<!-- HERO VIDEO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="chi-siamo.mp4" type="video/mp4">
+  </video>
 
-<!-- OVERLAY -->
-<div class="overlay"></div>
+  <div class="hero-content">
+    <h1>CHI SIAMO</h1>
+    <p>Passion, precision and excellence in automotive care.</p>
+  </div>
+</section>
 
 <!-- CONTENT -->
-<div class="content">
-  <h1>CHI SIAMO</h1>
+<section class="section">
+  <h2>La Nostra Storia</h2>
+
   <p>
     SR Car Solution nasce dalla passione per le automobili e dalla volontà
-    di offrire servizi di alta qualità. Uniamo esperienza, tecnologia e
-    precisione per garantire risultati eccellenti e soddisfazione totale
-    del cliente.
+    di offrire servizi di alta qualità. Ogni veicolo viene trattato con
+    cura, precisione e attenzione ai dettagli per garantire risultati eccellenti.
   </p>
 
-  <a href="index.html" class="back-btn">BACK</a>
-</div>
+  <div class="values">
+
+    <div class="card">
+      <h3>Professionalità</h3>
+      <p>Un team esperto e qualificato nel settore automotive.</p>
+    </div>
+
+    <div class="card">
+      <h3>Qualità</h3>
+      <p>Utilizziamo solo prodotti premium e tecnologie avanzate.</p>
+    </div>
+
+    <div class="card">
+      <h3>Affidabilità</h3>
+      <p>Trasparenza, precisione e soddisfazione del cliente.</p>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back">BACK</a>
+</section>
 
 </body>
 </html>
