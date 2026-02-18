@@ -85,6 +85,22 @@ h1{font-size:clamp(2.5rem,5vw,4.5rem)}
 h2{font-size:clamp(2rem,4vw,3rem)}
 p{opacity:.9;line-height:1.6}
 
+/* BUTTON */
+button{
+  margin-top:30px;
+  padding:14px 48px;
+  border:1px solid rgba(255,255,255,.6);
+  background:transparent;
+  color:#fff;
+  letter-spacing:.3em;
+  cursor:pointer;
+  transition:.4s;
+}
+button:hover{
+  background:#fff;
+  color:#000;
+}
+
 /* FORM */
 .contatti{
   background:#fff;
@@ -147,6 +163,32 @@ p{opacity:.9;line-height:1.6}
   opacity:1;
   pointer-events:auto;
 }
+
+.rimac-top{
+  position:absolute;
+  top:30px;
+  left:40px;
+  right:40px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.rimac-links{
+  position:absolute;
+  top:140px;
+  left:120px;
+}
+
+.main-links a{
+  display:block;
+  font-size:1.6rem;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+.sub-links{
+  margin-top:40px;
+}
 </style>
 </head>
 
@@ -172,8 +214,27 @@ p{opacity:.9;line-height:1.6}
   <a data-i="4">05 CONTATTI</a>
 </div>
 
-<!-- MENU -->
+<!-- RIGHT MENU -->
 <div class="rimac-menu" id="rimacMenu">
+
+  <div class="rimac-top">
+    <div>SR CAR SOLUTION</div>
+    <div id="menuClose">✕</div>
+  </div>
+
+  <div class="rimac-links">
+    <div class="main-links">
+      <a data-i="0">SR CAR SOLUTION</a>
+      <a data-i="1">CAR DETAILING</a>
+      <a data-i="2">SERVIZI</a>
+      <a data-i="3">CHI SIAMO</a>
+      <a data-i="4">CONTATTI</a>
+    </div>
+
+    <!-- CLEANED -->
+    <div class="sub-links"></div>
+  </div>
+
 </div>
 
 <!-- SECTIONS -->
@@ -191,6 +252,7 @@ p{opacity:.9;line-height:1.6}
   <div class="content">
     <h2>CAR DETAILING</h2>
     <p>Servizi professionali per ogni veicolo.</p>
+    <button onclick="openPage('car-detailing.html')">SCOPRI</button>
   </div>
 </section>
 
@@ -199,6 +261,7 @@ p{opacity:.9;line-height:1.6}
   <div class="content">
     <h2>SERVIZI</h2>
     <p>Soluzioni automotive complete con precisione.</p>
+    <button onclick="openPage('servizi.html')">SCOPRI</button>
   </div>
 </section>
 
@@ -207,6 +270,7 @@ p{opacity:.9;line-height:1.6}
   <div class="content">
     <h2>CHI SIAMO</h2>
     <p>Passione e qualità al servizio del cliente.</p>
+    <button onclick="openPage('chi-siamo.html')">SCOPRI</button>
   </div>
 </section>
 
@@ -283,9 +347,23 @@ indexLinks.forEach(link=>{
   };
 });
 
+/* RIGHT MENU NAV */
+document.querySelectorAll(".main-links a").forEach(link=>{
+  link.onclick=()=>{
+    goTo(+link.dataset.i);
+    rimacMenu.classList.remove("active");
+  };
+});
+
+menuClose.onclick=()=>rimacMenu.classList.remove("active");
+
 document.getElementById("menuBtnTop").onclick=()=>{
   rimacMenu.classList.add("active");
 };
+
+function openPage(page){
+  window.location.href=page;
+}
 
 playVideo(0);
 </script>
