@@ -1,371 +1,251 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nevera – Cinematic</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>SR Car Solution SAGL</title>
 
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/Observer.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-html,body{
-  height:100%;
+body{
+  font-family:'Inter',sans-serif;
   background:#000;
   color:#fff;
-  font-family:'Inter',sans-serif;
   overflow:hidden;
-  touch-action:none;
 }
 
-/* LOADER */
-#loader{
+/* ================= TOP BAR ================= */
+
+.top-bar{
   position:fixed;
-  inset:0;
-  background:#000;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-#loader .line{
-  width:0%;
-  height:2px;
+  top:0;
+  width:100%;
+  height:70px;
   background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 25px;
+  z-index:9999;
 }
 
-/* SECTIONS */
-.section{
+.top-bar .left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.top-bar img{
+  height:40px;
+}
+
+.top-bar span{
+  color:#c62828;
+  font-weight:700;
+}
+
+.menu-icon{
+  color:#000;
+  font-size:24px;
+}
+
+/* ================= SIDE MENU ================= */
+
+.side-menu{
   position:fixed;
-  inset:0;
+  left:30px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  z-index:999;
+}
+
+.side-menu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+}
+
+/* ================= SECTIONS ================= */
+
+.wrapper{
+  height:100vh;
+  width:100%;
+  position:relative;
+}
+
+.section{
+  height:100vh;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  opacity:0;
-  pointer-events:none;
+  text-align:center;
 }
-.section.active{
-  opacity:1;
-  pointer-events:auto;
-}
-.section video{
+
+/* ================= VIDEO ================= */
+
+video{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
 }
-.section::after{
-  content:"";
+
+.overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.6);
 }
 
-/* CONTENT */
 .content{
   position:relative;
   z-index:2;
-  text-align:center;
-  max-width:700px;
-  padding:0 20px;
+  padding:20px;
 }
-h1,h2{
-  letter-spacing:.25em;
-  margin-bottom:20px;
-  font-weight:300;
-}
-h1{font-size:clamp(2.5rem,5vw,4.5rem)}
-h2{font-size:clamp(2rem,4vw,3rem)}
-p{opacity:.9;line-height:1.6}
 
-/* BUTTON */
-button{
-  margin-top:30px;
-  padding:14px 48px;
-  border:1px solid rgba(255,255,255,.6);
-  background:transparent;
-  color:#fff;
-  letter-spacing:.3em;
-  cursor:pointer;
-  transition:.4s;
-}
-button:hover{
+/* ================= CONTATTI ================= */
+
+.contatti{
   background:#fff;
   color:#000;
 }
 
-/* LOGO */
-.logo{
-  position:fixed;
-  top:25px;
-  left:30px;
-  z-index:60;
+.form{
+  max-width:500px;
+  margin:auto;
 }
-.logo img{width:70px}
 
-/* LEFT INDEX */
-.section-index{
-  position:fixed;
-  left:30px;
-  bottom:40px;
-  z-index:60;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  font-size:.75rem;
-  letter-spacing:.35em;
+.form input,
+.form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ccc;
 }
-.section-index a{
+
+.form button{
+  width:100%;
+  padding:12px;
+  background:#2d6cdf;
   color:#fff;
-  text-decoration:none;
-  opacity:.35;
-}
-.section-index a.active{opacity:1}
-
-/* MENU */
-.menu-btn{
-  position:fixed;
-  top:30px;
-  right:30px;
-  z-index:100;
-  cursor:pointer;
-}
-.menu-btn span{
-  display:block;
-  width:25px;
-  height:2px;
-  background:#fff;
-  margin:6px 0;
+  border:none;
 }
 
-.rimac-menu{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at right,#0e2b34,#07181f);
-  z-index:200;
-  opacity:0;
-  pointer-events:none;
-  transition:.6s;
-}
-.rimac-menu.active{
-  opacity:1;
-  pointer-events:auto;
-}
-.rimac-top{
-  position:absolute;
-  top:30px;
-  left:40px;
-  right:40px;
-  display:flex;
-  justify-content:space-between;
-}
-
-.rimac-links{
-  position:absolute;
-  top:140px;
-  left:120px;
-}
-
-.main-links a{
-  display:block;
-  font-size:1.6rem;
-  margin-bottom:20px;
-  cursor:pointer;
-}
-
-/* 🔥 SUB LINKS */
-.sub-links{
-  margin-top:40px;
-}
-.sub-links a{
-  display:block;
-  font-size:.8rem;
-  margin-bottom:12px;
-  opacity:.6;
-}
-.sub-links a:hover{opacity:1}
-
-/* MOBILE */
-@media(max-width:768px){
-  h1{font-size:2rem}
-  h2{font-size:1.6rem}
-}
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader"><div class="line"></div></div>
-
-<!-- LOGO -->
-<div class="logo">
-  <img src="sr-logo.png">
-</div>
-
-<!-- LEFT INDEX -->
-<div class="section-index">
-  <a data-i="0" class="active">01 NEVERA</a>
-  <a data-i="1">02 TECHNOLOGY</a>
-  <a data-i="2">03 DEVELOPMENT</a>
-  <a data-i="3">04 ABOUT US</a>
-</div>
-
-<!-- MENU BUTTON -->
-<div class="menu-btn" id="menuBtn">
-  <span></span><span></span><span></span>
-</div>
-
-<!-- MENU -->
-<div class="rimac-menu" id="rimacMenu">
-  <div class="rimac-top">
-    <div>RIMAC</div>
-    <div id="menuClose">✕</div>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="left">
+    <img src="sr-logo.png">
+    <span>SR Car Solution SAGL</span>
   </div>
-
-  <div class="rimac-links">
-    <div class="main-links">
-      <a data-i="0">NEVERA</a>
-      <a data-i="1">TECHNOLOGY</a>
-      <a data-i="2">DEVELOPMENT</a>
-      <a data-i="3">ABOUT US</a>
-    </div>
-
-    <div class="sub-links">
-      <a>CAREERS ↗</a>
-      <a>FACTORY TOURS</a>
-      <a>CAMPUS ↗</a>
-      <a>E_STORE ↗</a>
-      <a>MEDIA CENTER ↗</a>
-      <a>PARTNERS MAP</a>
-      <a>CONTACT</a>
-    </div>
-  </div>
+  <div class="menu-icon">☰</div>
 </div>
 
-<!-- SECTIONS -->
+<!-- SIDE MENU -->
+<div class="side-menu">
+  <a href="#">SR Car Solution</a>
+  <a href="#">Car Detailing</a>
+  <a href="#">Servizi</a>
+  <a href="#">Chi Siamo</a>
+  <a href="#">Contatti</a>
+</div>
 
-<section class="section active">
-  <video autoplay muted loop playsinline src="hero.mp4"></video>
-  <div class="content">
-    <h1>NEVERA</h1>
-    <p>Capable of exceptional speeds.</p>
-  </div>
-</section>
+<div class="wrapper">
 
+<!-- HERO -->
 <section class="section">
-  <video autoplay muted loop playsinline src="tech-video.mp4"></video>
+  <video autoplay muted loop playsinline>
+    <source src="hero.mp4">
+  </video>
+  <div class="overlay"></div>
   <div class="content">
-    <h2>TECHNOLOGY</h2>
-    <p>From bespoke component design and engineering to full series production.</p>
-    <button onclick="openPage('car-detailing.html')">EXPLORE</button>
+    <h1>SR CAR SOLUTION</h1>
+    <p>Eccellenza nella cura dell’auto.</p>
   </div>
 </section>
 
+<!-- TECH -->
 <section class="section">
-  <video autoplay muted loop playsinline src="dev-video.mp4"></video>
+  <video autoplay muted loop playsinline>
+    <source src="tech-video.mp4">
+  </video>
+  <div class="overlay"></div>
   <div class="content">
-    <h2>DEVELOPMENT</h2>
-    <p>We are taking you behind the scenes of hypercar engineering.</p>
-    <button onclick="openPage('servizi.html')">DISCOVER</button>
+    <h1>CAR DETAILING</h1>
   </div>
 </section>
 
+<!-- SERVIZI -->
 <section class="section">
-  <video autoplay muted loop playsinline src="about-video.mp4"></video>
+  <video autoplay muted loop playsinline>
+    <source src="dev-video.mp4">
+  </video>
+  <div class="overlay"></div>
   <div class="content">
-    <h2>ABOUT US</h2>
-    <p>We challenge convention and push technology to the edge.</p>
-    <button onclick="openPage('chi-siamo.html')">EXPLORE</button>
+    <h1>SERVIZI</h1>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="section">
+  <video autoplay muted loop playsinline>
+    <source src="about-video.mp4">
+  </video>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>CHI SIAMO</h1>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="section contatti">
+  <div class="content form">
+    <h2>Contatti</h2>
+
+    <input type="text" placeholder="Nome *">
+    <input type="text" placeholder="Cognome">
+    <input type="email" placeholder="Email *">
+    <input type="tel" placeholder="Telefono Mobile *">
+    <textarea placeholder="Messaggio *"></textarea>
+
+    <button>Invia</button>
+  </div>
+</section>
+
+</div>
+
+<!-- SIMPLE LOOP SCRIPT (SAFE) -->
 <script>
-gsap.registerPlugin(Observer);
+let sections = document.querySelectorAll(".section");
+let index = 0;
 
-const sections = gsap.utils.toArray(".section");
-const indexLinks = document.querySelectorAll(".section-index a");
-const videos = document.querySelectorAll("video");
+window.addEventListener("wheel", (e)=>{
+  if(e.deltaY>0) index++;
+  else index--;
 
-let current = 0;
-let animating = false;
+  if(index>=sections.length) index=0;
+  if(index<0) index=sections.length-1;
 
-/* LOADER */
-gsap.to("#loader .line",{width:"100%",duration:1,onComplete:()=>{
-  gsap.to("#loader",{opacity:0,duration:0.5,onComplete:()=>{
-    loader.style.display="none";
-  }});
-}});
-
-/* VIDEO CONTROL */
-function playVideo(index){
-  videos.forEach((v,i)=>{
-    v.pause();
-    if(i===index){
-      v.currentTime=0;
-      v.play().catch(()=>{});
-    }
+  sections.forEach((sec,i)=>{
+    sec.style.transform=`translateY(${(i-index)*100}vh)`;
   });
-}
-
-/* NAV */
-function goTo(index){
-  if(animating||index===current)return;
-  animating=true;
-
-  let from=sections[current];
-  let to=sections[index];
-  to.classList.add("active");
-
-  gsap.timeline({
-    onComplete:()=>{
-      from.classList.remove("active");
-      current=index;
-      animating=false;
-      syncIndex();
-      playVideo(index);
-    }
-  })
-  .to(from,{opacity:0,duration:0.6})
-  .fromTo(to,{opacity:0},{opacity:1,duration:0.6},0);
-}
-
-function syncIndex(){
-  indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
-}
-
-/* SCROLL */
-Observer.create({
-  type:"wheel,touch",
-  onDown:()=>goTo((current+1)%sections.length),
-  onUp:()=>goTo((current-1+sections.length)%sections.length)
 });
-
-/* INDEX CLICK */
-indexLinks.forEach(link=>{
-  link.onclick=e=>{
-    e.preventDefault();
-    goTo(+link.dataset.i);
-  };
-});
-
-/* MENU */
-menuBtn.onclick=()=>rimacMenu.classList.add("active");
-menuClose.onclick=()=>rimacMenu.classList.remove("active");
-
-/* NAV BUTTON */
-function openPage(page){
-  window.location.href=page;
-}
-
-/* INIT */
-playVideo(0);
 </script>
 
 </body>
