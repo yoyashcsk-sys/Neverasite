@@ -22,7 +22,8 @@ body{
   overflow-x:hidden;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
   position:relative;
   height:100vh;
@@ -44,7 +45,7 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.65);
 }
 
 .hero-content{
@@ -61,114 +62,157 @@ body{
 }
 
 .hero p{
+  opacity:.85;
   max-width:600px;
   margin:auto;
-  opacity:.85;
 }
 
-/* CONTENT */
+/* ================= SECTION ================= */
+
 .section{
-  padding:100px 10%;
+  padding:100px 20px;
   background:#0a0a0a;
+  text-align:center;
 }
 
-.section h2{
-  margin-bottom:20px;
-  letter-spacing:.2em;
+/* IMAGE */
+
+.center-image{
+  display:flex;
+  justify-content:center;
+  margin-bottom:40px;
 }
 
-.section p{
-  max-width:900px;
-  line-height:1.8;
-  opacity:.85;
+.center-image img{
+  width:320px;
+  height:380px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+  transition:.5s;
 }
 
-/* VALUES GRID */
-.values{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+.center-image img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(255,44,44,.4);
 }
 
-.card{
-  background:#111;
-  padding:30px;
-  border:1px solid rgba(255,255,255,.1);
-  transition:.4s;
+/* TEXT */
+
+.center-text{
+  max-width:800px;
+  margin:auto;
 }
 
-.card:hover{
-  border-color:#ff2c2c;
-  box-shadow:0 0 20px rgba(255,44,44,.4);
-}
-
-.card h3{
+.center-text h2{
+  letter-spacing:.3em;
   margin-bottom:10px;
 }
 
-/* BUTTON */
-.back{
-  display:inline-block;
-  margin-top:60px;
-  padding:14px 40px;
-  border:1px solid #fff;
-  text-decoration:none;
-  color:#fff;
-  letter-spacing:.3em;
+.tagline{
+  font-size:0.9rem;
+  letter-spacing:.2em;
+  opacity:.6;
+  margin-bottom:30px;
 }
 
-.back:hover{
-  background:#fff;
-  color:#000;
+.center-text p{
+  line-height:1.8;
+  opacity:.85;
+  margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.button{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 40px;
+  border:1px solid #fff;
+  letter-spacing:.3em;
+  text-decoration:none;
+  color:#fff;
+  transition:.4s;
+}
+
+.button:hover{
+  background:#ff2c2c;
+  border-color:#ff2c2c;
+  box-shadow:0 0 20px rgba(255,44,44,.6);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+  .hero h1{
+    letter-spacing:.15em;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO VIDEO -->
+<!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="chi-siamo.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="videos/detail.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
     <h1>CHI SIAMO</h1>
-    <p>Passion, precision and excellence in automotive care.</p>
+    <p>Passione, esperienza e qualità nel mondo automotive.</p>
   </div>
 </section>
 
-<!-- CONTENT -->
+<!-- ABOUT -->
 <section class="section">
-  <h2>La Nostra Storia</h2>
 
-  <p>
-    SR Car Solution nasce dalla passione per le automobili e dalla volontà
-    di offrire servizi di alta qualità. Ogni veicolo viene trattato con
-    cura, precisione e attenzione ai dettagli per garantire risultati eccellenti.
-  </p>
+  <div class="center-image">
+    <img src="images/simone.jpg" alt="Simone Rebeschi">
+  </div>
 
-  <div class="values">
+  <div class="center-text">
 
-    <div class="card">
-      <h3>Professionalità</h3>
-      <p>Un team esperto e qualificato nel settore automotive.</p>
-    </div>
+    <h2>SIMONE REBESCHI</h2>
 
-    <div class="card">
-      <h3>Qualità</h3>
-      <p>Utilizziamo solo prodotti premium e tecnologie avanzate.</p>
-    </div>
+    <p class="tagline">
+      LA MIA PASSIONE AL SERVIZIO DEI CLIENTI
+    </p>
 
-    <div class="card">
-      <h3>Affidabilità</h3>
-      <p>Trasparenza, precisione e soddisfazione del cliente.</p>
-    </div>
+    <p>
+      Nel settore automobilistico dall’età di 14 anni per pura passione,
+      ho conseguito il Diploma di Meccanica presso la scuola SPAI di Mendrisio
+      e ottenuto certificazioni in vendita e accettazione clienti,
+      sempre con l’obiettivo di offrire il miglior servizio possibile.
+    </p>
+
+    <p>
+      La mia carriera è cresciuta da operaio a capo officina,
+      acquisendo esperienza che oggi metto completamente a disposizione
+      dei miei clienti. Ogni problema è una sfida che affronto
+      con dedizione personale.
+    </p>
+
+    <p>
+      Nel 2021 ho fondato SR Solution per essere più vicino alle esigenze dei clienti.
+      Nel 2024 è nata SR Car Solution Sagl, dove ogni cliente riceve un servizio su misura:
+      dall’assistenza personalizzata alla cura maniacale dei dettagli,
+      fino alla riparazione meccanica eseguita come se fosse la mia auto.
+    </p>
+
+    <p>
+      Oggi, a 37 anni, realizzo il sogno di quel bambino innamorato delle auto.
+      La mia missione è semplice: trattare ogni cliente come un amico,
+      perché dietro ogni vettura c’è una storia e una persona
+      che merita il massimo rispetto e professionalità.
+    </p>
+
+    <a href="index.html" class="button">BACK HOME</a>
 
   </div>
 
-  <a href="index.html" class="back">BACK</a>
 </section>
 
 </body>
