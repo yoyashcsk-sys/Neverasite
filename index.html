@@ -23,22 +23,51 @@ html,body{
   touch-action:none;
 }
 
-/* TOP BAR */
+/* TOP BAR (UPDATED) */
 .top-bar{
   position:fixed;
   top:0;
   width:100%;
-  height:70px;
+  height:80px;
   background:#fff;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
-  padding:0 25px;
   z-index:500;
 }
-.top-bar img{height:40px}
-.top-bar span{color:#c62828;font-weight:700}
-.top-bar .menu-btn span{background:#000}
+
+/* CENTER LOGO */
+.logo-center{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-center img{
+  height:50px;
+}
+
+.logo-center span{
+  color:#c62828;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:1px;
+}
+
+/* MENU BTN RIGHT */
+.menu-btn{
+  position:absolute;
+  right:25px;
+  z-index:100;
+  cursor:pointer;
+}
+.menu-btn span{
+  display:block;
+  width:25px;
+  height:2px;
+  background:#000;
+  margin:6px 0;
+}
 
 /* SECTIONS */
 .section{
@@ -133,22 +162,6 @@ button:hover{
 }
 .section-index a.active{opacity:1}
 
-/* MENU BTN */
-.menu-btn{
-  position:fixed;
-  top:30px;
-  right:30px;
-  z-index:100;
-  cursor:pointer;
-}
-.menu-btn span{
-  display:block;
-  width:25px;
-  height:2px;
-  background:#fff;
-  margin:6px 0;
-}
-
 /* MENU */
 .rimac-menu{
   position:fixed;
@@ -194,15 +207,18 @@ button:hover{
 
 <body>
 
-<!-- TOP BAR -->
+<!-- TOP BAR (UPDATED) -->
 <div class="top-bar">
-  <div>
+  
+  <div class="logo-center">
     <img src="sr-logo.png">
     <span>SR Car Solution SAGL</span>
   </div>
+
   <div class="menu-btn" id="menuBtnTop">
     <span></span><span></span><span></span>
   </div>
+
 </div>
 
 <!-- LEFT MENU -->
@@ -231,7 +247,6 @@ button:hover{
       <a data-i="4">CONTATTI</a>
     </div>
 
-    <!-- CLEANED -->
     <div class="sub-links"></div>
   </div>
 
@@ -274,7 +289,6 @@ button:hover{
   </div>
 </section>
 
-<!-- CONTATTI -->
 <section class="section contatti">
   <div class="content">
     <h2>Contatti</h2>
@@ -347,7 +361,6 @@ indexLinks.forEach(link=>{
   };
 });
 
-/* RIGHT MENU NAV */
 document.querySelectorAll(".main-links a").forEach(link=>{
   link.onclick=()=>{
     goTo(+link.dataset.i);
