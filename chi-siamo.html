@@ -158,6 +158,72 @@ body{
   box-shadow:0 0 20px rgba(255,44,44,.6);
 }
 
+/* ================= TEAM SECTION ================= */
+
+.team-section{
+  padding:100px 20px;
+  background:#050505;
+  text-align:center;
+}
+
+.team-title{
+  font-size:clamp(1.8rem,4vw,2.5rem);
+  letter-spacing:.3em;
+  margin-bottom:10px;
+}
+
+.team-subtitle{
+  opacity:.6;
+  margin-bottom:60px;
+  letter-spacing:.2em;
+}
+
+.team-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.team-card{
+  width:280px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+}
+
+.team-card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+.team-card h3{
+  margin:15px 0 5px;
+  letter-spacing:.1em;
+}
+
+.team-card .role{
+  font-size:.85rem;
+  opacity:.6;
+  margin-bottom:10px;
+}
+
+.team-card .desc{
+  font-size:.9rem;
+  opacity:.75;
+  padding:0 15px 20px;
+  line-height:1.6;
+}
+
+.team-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 25px rgba(255,44,44,0.4);
+}
+
 /* MOBILE */
 
 @media(max-width:768px){
@@ -180,9 +246,7 @@ body{
     <h1>CHI SIAMO</h1>
     <p>Passione, esperienza e qualità nel mondo automotive.</p>
 
-    <!-- Arrow (unchanged) -->
     <div class="scroll-down">↓</div>
-
   </div>
 </section>
 
@@ -190,49 +254,70 @@ body{
 <section class="section">
 
   <div class="center-image">
-    <img src="simone.jpg" alt="Simone Rebeschi">
+    <img src="simone.jpg" alt="About Image">
   </div>
 
   <div class="center-text">
 
-    <h2>SIMONE REBESCHI</h2>
+    <h2>LA NOSTRA STORIA</h2>
 
     <p class="tagline">
-      LA MIA PASSIONE AL SERVIZIO DEI CLIENTI
+      PASSIONE E PROFESSIONALITÀ
     </p>
 
     <p>
-      Nel settore automobilistico dall’età di 14 anni per pura passione,
-      ho conseguito il Diploma di Meccanica presso la scuola SPAI di Mendrisio
-      e ottenuto certificazioni in vendita e accettazione clienti,
-      sempre con l’obiettivo di offrire il miglior servizio possibile.
+      Nel settore automobilistico da anni, lavoriamo con passione,
+      esperienza e attenzione ai dettagli per offrire il massimo
+      livello di qualità ai nostri clienti.
     </p>
 
     <p>
-      La mia carriera è cresciuta da operaio a capo officina,
-      acquisendo esperienza che oggi metto completamente a disposizione
-      dei miei clienti. Ogni problema è una sfida che affronto
-      con dedizione personale.
+      Ogni servizio è studiato su misura, combinando competenze tecniche
+      e cura artigianale per garantire risultati eccellenti.
     </p>
 
     <p>
-      Nel 2021 ho fondato SR Solution per essere più vicino alle esigenze dei clienti.
-      Nel 2024 è nata SR Car Solution Sagl, dove ogni cliente riceve un servizio su misura:
-      dall’assistenza personalizzata alla cura maniacale dei dettagli,
-      fino alla riparazione meccanica eseguita come se fosse la mia auto.
-    </p>
-
-    <p>
-      Oggi, a 37 anni, realizzo il sogno di quel bambino innamorato delle auto.
-      La mia missione è semplice: trattare ogni cliente come un amico,
-      perché dietro ogni vettura c’è una storia e una persona
-      che merita il massimo rispetto e professionalità.
+      La nostra missione è semplice: offrire un servizio affidabile,
+      preciso e orientato al cliente, mantenendo standard elevati
+      in ogni intervento.
     </p>
 
     <a href="index.html" class="button">BACK HOME</a>
 
   </div>
 
+</section>
+
+<!-- TEAM SECTION -->
+
+<section class="team-section">
+  <h2 class="team-title">IL NOSTRO TEAM</h2>
+  <p class="team-subtitle">Esperti. Precisi. Affidabili.</p>
+
+  <div class="team-container">
+
+    <div class="team-card">
+      <img src="team1.jpg">
+      <h3>Team Lead</h3>
+      <p class="role">Founder & Automotive Specialist</p>
+      <p class="desc">Esperienza e passione per offrire il massimo livello di servizio.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="team2.jpg">
+      <h3>Detailing Expert</h3>
+      <p class="role">Car Care Specialist</p>
+      <p class="desc">Precisione e attenzione ai dettagli per risultati impeccabili.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="team3.jpg">
+      <h3>Client Manager</h3>
+      <p class="role">Customer Relations</p>
+      <p class="desc">Sempre al tuo servizio per un’esperienza premium.</p>
+    </div>
+
+  </div>
 </section>
 
 </body>
