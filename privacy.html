@@ -22,6 +22,18 @@ h1{
 h2{
   margin-top: 30px;
 }
+
+/* ✅ BACK BUTTON */
+.back-btn{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  padding:10px 20px;
+  border:none;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -67,6 +79,15 @@ h2{
 
 <h2>Dove spediamo i tuoi dati</h2>
 <p>I commenti dei visitatori possono essere controllati attraverso un servizio di rilevamento automatico dello spam.</p>
+
+<!-- ✅ BACK BUTTON -->
+<button onclick="goBack()" class="back-btn">Back</button>
+
+<script>
+function goBack(){
+  window.history.back();
+}
+</script>
 
 </body>
 </html>
