@@ -67,6 +67,22 @@ body{
   margin:auto;
 }
 
+/* ================= SCROLL ARROW ================= */
+
+.scroll-down{
+  margin-top:20px;
+  font-size:22px;
+  color:white;
+  opacity:0.8;
+  animation:bounce 1.5s infinite;
+  text-align:center;
+}
+
+@keyframes bounce{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(8px); }
+}
+
 /* ================= SECTION ================= */
 
 .section{
@@ -157,13 +173,17 @@ body{
 <!-- HERO -->
 <section class="hero">
   <video autoplay muted loop playsinline preload="auto">
-    <!-- ✅ FINAL FIXED PATH -->
+    <!-- â FINAL FIXED PATH -->
     <source src="chi-siamo.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
     <h1>CHI SIAMO</h1>
-    <p>Passione, esperienza e qualità nel mondo automotive.</p>
+    <p>Passione, esperienza e qualitÃ  nel mondo automotive.</p>
+
+    <!-- 👇 ONLY ADDED -->
+    <div class="scroll-down">↓</div>
+
   </div>
 </section>
 
@@ -183,31 +203,31 @@ body{
     </p>
 
     <p>
-      Nel settore automobilistico dall’età di 14 anni per pura passione,
+      Nel settore automobilistico dallâetÃ  di 14 anni per pura passione,
       ho conseguito il Diploma di Meccanica presso la scuola SPAI di Mendrisio
       e ottenuto certificazioni in vendita e accettazione clienti,
-      sempre con l’obiettivo di offrire il miglior servizio possibile.
+      sempre con lâobiettivo di offrire il miglior servizio possibile.
     </p>
 
     <p>
-      La mia carriera è cresciuta da operaio a capo officina,
+      La mia carriera Ã¨ cresciuta da operaio a capo officina,
       acquisendo esperienza che oggi metto completamente a disposizione
-      dei miei clienti. Ogni problema è una sfida che affronto
+      dei miei clienti. Ogni problema Ã¨ una sfida che affronto
       con dedizione personale.
     </p>
 
     <p>
-      Nel 2021 ho fondato SR Solution per essere più vicino alle esigenze dei clienti.
-      Nel 2024 è nata SR Car Solution Sagl, dove ogni cliente riceve un servizio su misura:
-      dall’assistenza personalizzata alla cura maniacale dei dettagli,
+      Nel 2021 ho fondato SR Solution per essere piÃ¹ vicino alle esigenze dei clienti.
+      Nel 2024 Ã¨ nata SR Car Solution Sagl, dove ogni cliente riceve un servizio su misura:
+      dallâassistenza personalizzata alla cura maniacale dei dettagli,
       fino alla riparazione meccanica eseguita come se fosse la mia auto.
     </p>
 
     <p>
       Oggi, a 37 anni, realizzo il sogno di quel bambino innamorato delle auto.
-      La mia missione è semplice: trattare ogni cliente come un amico,
-      perché dietro ogni vettura c’è una storia e una persona
-      che merita il massimo rispetto e professionalità.
+      La mia missione Ã¨ semplice: trattare ogni cliente come un amico,
+      perchÃ© dietro ogni vettura câÃ¨ una storia e una persona
+      che merita il massimo rispetto e professionalitÃ .
     </p>
 
     <a href="index.html" class="button">BACK HOME</a>
