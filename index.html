@@ -179,7 +179,7 @@ button:hover{
   margin:0;
 }
 
-/* ✅ PRIVACY BUTTON */
+/* PRIVACY BUTTON */
 .privacy-link{
   position:fixed;
   bottom:20px;
@@ -358,17 +358,25 @@ button:hover{
       </div>
     </div>
 
-    <input type="text" placeholder="Nome *">
-    <input type="text" placeholder="Cognome">
-    <input type="email" placeholder="Email *">
-    <input type="tel" placeholder="Telefono Mobile *">
-    <textarea placeholder="Messaggio *"></textarea>
-    <button>Invia</button>
+    <!-- ✅ WORKING FORM -->
+    <form action="https://formsubmit.co/info@srcarsolution.ch" method="POST">
+
+      <input type="hidden" name="_subject" value="New Contact from SR Car Solution">
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="Nome" placeholder="Nome *" required>
+      <input type="text" name="Cognome" placeholder="Cognome">
+      <input type="email" name="Email" placeholder="Email *" required>
+      <input type="tel" name="Telefono" placeholder="Telefono Mobile *" required>
+      <textarea name="Messaggio" placeholder="Messaggio *" required></textarea>
+
+      <button type="submit">Invia</button>
+
+    </form>
 
   </div>
 </section>
 
-<!-- ✅ PRIVACY BUTTON -->
 <a href="privacy.html" class="privacy-link">Privacy Policy</a>
 
 <script>
