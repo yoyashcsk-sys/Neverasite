@@ -68,6 +68,22 @@ body{
   margin:auto;
 }
 
+/* ================= SCROLL ARROW ================= */
+
+.scroll-down{
+  margin-top:20px;
+  font-size:22px;
+  color:white;
+  opacity:0.8;
+  animation:bounce 1.5s infinite;
+  text-align:center;
+}
+
+@keyframes bounce{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(8px); }
+}
+
 /* ================= CONTENT ================= */
 
 .section{
@@ -156,8 +172,12 @@ body{
     <source src="detail.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <h1>DETTAGLIO AUTO</h1>
+    <h1>CAR DETAILING</h1>
     <p>Precisione. Protezione. Perfezione per il tuo veicolo.</p>
+
+    <!-- 👇 ADDED SCROLL ARROW -->
+    <div class="scroll-down">↓</div>
+
   </div>
 </section>
 
@@ -166,8 +186,8 @@ body{
   <h2>Servizi di Detailing Premium</h2>
   <p>
     Presso SR Car Solution, offriamo servizi professionali di detailing interno ed esterno
-    utilizzando prodotti di alta qualità e tecniche avanzate.
-    La nostra missione è ripristinare, proteggere e valorizzare il tuo veicolo con
+    utilizzando prodotti di alta qualitÃ  e tecniche avanzate.
+    La nostra missione Ã¨ ripristinare, proteggere e valorizzare il tuo veicolo con
     un'attenzione meticolosa ai dettagli.
   </p>
 
