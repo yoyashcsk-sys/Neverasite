@@ -143,6 +143,58 @@ button:hover{
   border:1px solid #ccc;
 }
 
+/* CONTACT INFO */
+.contact-info-section{
+  text-align:left;
+  margin-bottom:30px;
+}
+.contact-info-section h3{
+  font-size:20px;
+  font-weight:500;
+  color:#111;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+.contact-info-item{
+  display:flex;
+  align-items:center;
+  margin-bottom:12px;
+  font-size:16px;
+  color:#555;
+}
+.contact-info-item .icon{
+  margin-right:10px;
+  font-size:18px;
+}
+.contact-info-item a{
+  text-decoration:none;
+  color:#555;
+  border-bottom:1px solid #ccc;
+}
+.contact-info-item a:hover{
+  color:#000;
+  border-color:#000;
+}
+.contact-info-item p{
+  margin:0;
+}
+
+/* ✅ PRIVACY BUTTON */
+.privacy-link{
+  position:fixed;
+  bottom:20px;
+  right:25px;
+  font-size:12px;
+  letter-spacing:0.2em;
+  text-decoration:none;
+  color:rgba(255,255,255,0.6);
+  z-index:999;
+  transition:0.3s;
+}
+.privacy-link:hover{
+  color:#fff;
+}
+
 /* LEFT MENU */
 .section-index{
   position:fixed;
@@ -281,15 +333,43 @@ button:hover{
 
 <section class="section contatti">
   <div class="content">
+    
     <h2>Contatti</h2>
+
+    <div class="contact-info-section">
+      <h3>
+        Siamo a disposizione per richieste, preventivi e informazioni.
+        Scegli il canale che preferisci:
+      </h3>
+
+      <div class="contact-info-item">
+        <span class="icon">📱</span>
+        <a href="tel:+41768036802">+41 76 803 68 02</a>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="icon">📝</span>
+        <p>Compila il formulario online qui di fianco</p>
+      </div>
+    </div>
+
     <input type="text" placeholder="Nome *">
     <input type="text" placeholder="Cognome">
     <input type="email" placeholder="Email *">
     <input type="tel" placeholder="Telefono Mobile *">
     <textarea placeholder="Messaggio *"></textarea>
     <button>Invia</button>
+
   </div>
 </section>
+
+<!-- ✅ PRIVACY BUTTON -->
+<a href="privacy.html" class="privacy-link">Privacy Policy</a>
 
 <script>
 gsap.registerPlugin(Observer);
