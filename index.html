@@ -23,7 +23,7 @@ html,body{
   touch-action:none;
 }
 
-/* TOP BAR (UPDATED) */
+/* TOP BAR */
 .top-bar{
   position:fixed;
   top:0;
@@ -36,17 +36,13 @@ html,body{
   z-index:500;
 }
 
-/* CENTER LOGO */
+/* LOGO */
 .logo-center{
   display:flex;
   align-items:center;
   gap:12px;
 }
-
-.logo-center img{
-  height:50px;
-}
-
+.logo-center img{height:50px;}
 .logo-center span{
   color:#c62828;
   font-weight:700;
@@ -54,7 +50,7 @@ html,body{
   letter-spacing:1px;
 }
 
-/* MENU BTN RIGHT */
+/* MENU BTN */
 .menu-btn{
   position:absolute;
   right:25px;
@@ -143,7 +139,7 @@ button:hover{
   border:1px solid #ccc;
 }
 
-/* CONTACT INFO */
+/* CONTACT */
 .contact-info-section{
   text-align:left;
   margin-bottom:30px;
@@ -164,7 +160,6 @@ button:hover{
 }
 .contact-info-item .icon{
   margin-right:10px;
-  font-size:18px;
 }
 .contact-info-item a{
   text-decoration:none;
@@ -173,26 +168,17 @@ button:hover{
 }
 .contact-info-item a:hover{
   color:#000;
-  border-color:#000;
-}
-.contact-info-item p{
-  margin:0;
 }
 
-/* PRIVACY BUTTON */
+/* PRIVACY */
 .privacy-link{
   position:fixed;
   bottom:20px;
   right:25px;
   font-size:12px;
   letter-spacing:0.2em;
-  text-decoration:none;
   color:rgba(255,255,255,0.6);
   z-index:999;
-  transition:0.3s;
-}
-.privacy-link:hover{
-  color:#fff;
 }
 
 /* LEFT MENU */
@@ -209,7 +195,6 @@ button:hover{
 }
 .section-index a{
   color:#fff;
-  text-decoration:none;
   opacity:.35;
 }
 .section-index a.active{opacity:1}
@@ -229,30 +214,36 @@ button:hover{
   pointer-events:auto;
 }
 
-.rimac-top{
-  position:absolute;
-  top:30px;
-  left:40px;
-  right:40px;
-  display:flex;
-  justify-content:space-between;
-}
+/* ================= MOBILE FIXES ================= */
+@media (max-width:768px){
 
-.rimac-links{
-  position:absolute;
-  top:140px;
-  left:120px;
-}
+  /* LOGO FIX */
+  .logo-center{
+    min-width:0;
+    max-width:75%;
+  }
+  .logo-center img{
+    height:32px;
+    flex-shrink:0;
+  }
+  .logo-center span{
+    font-size:14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
 
-.main-links a{
-  display:block;
-  font-size:1.6rem;
-  margin-bottom:20px;
-  cursor:pointer;
-}
+  /* LEFT MENU FIX */
+  .section-index{
+    z-index:1;
+    opacity:0.25;
+    pointer-events:none;
+  }
 
-.sub-links{
-  margin-top:40px;
+  .content{
+    z-index:10;
+  }
+
 }
 </style>
 </head>
@@ -292,89 +283,33 @@ button:hover{
       <a data-i="3">CHI SIAMO</a>
       <a data-i="4">CONTATTI</a>
     </div>
-    <div class="sub-links"></div>
   </div>
 </div>
 
-<section class="section active">
-  <video autoplay muted loop playsinline src="hero.mp4"></video>
-  <div class="content">
-    <h1>SR CAR SOLUTION</h1>
-    <p>Eccellenza nella cura dell’auto.</p>
-  </div>
-</section>
-
-<section class="section">
-  <video autoplay muted loop playsinline src="tech-video.mp4"></video>
-  <div class="content">
-    <h2>CAR DETAILING</h2>
-    <p>Servizi professionali per ogni veicolo.</p>
-    <button onclick="openPage('car-detailing.html')">SCOPRI</button>
-  </div>
-</section>
-
-<section class="section">
-  <video autoplay muted loop playsinline src="dev-video.mp4"></video>
-  <div class="content">
-    <h2>SERVIZI</h2>
-    <p>Soluzioni automotive complete con precisione.</p>
-    <button onclick="openPage('servizi.html')">SCOPRI</button>
-  </div>
-</section>
-
-<section class="section">
-  <video autoplay muted loop playsinline src="about-video.mp4"></video>
-  <div class="content">
-    <h2>CHI SIAMO</h2>
-    <p>Passione e qualità al servizio del cliente.</p>
-    <button onclick="openPage('chi-siamo.html')">SCOPRI</button>
-  </div>
-</section>
+<!-- SECTIONS SAME -->
+<section class="section active"><video autoplay muted loop playsinline src="hero.mp4"></video><div class="content"><h1>SR CAR SOLUTION</h1><p>Eccellenza nella cura dell’auto.</p></div></section>
+<section class="section"><video autoplay muted loop playsinline src="tech-video.mp4"></video><div class="content"><h2>CAR DETAILING</h2><p>Servizi professionali per ogni veicolo.</p></div></section>
+<section class="section"><video autoplay muted loop playsinline src="dev-video.mp4"></video><div class="content"><h2>SERVIZI</h2><p>Soluzioni automotive complete con precisione.</p></div></section>
+<section class="section"><video autoplay muted loop playsinline src="about-video.mp4"></video><div class="content"><h2>CHI SIAMO</h2><p>Passione e qualità al servizio del cliente.</p></div></section>
 
 <section class="section contatti">
-  <div class="content">
-    
-    <h2>Contatti</h2>
+<div class="content">
+<h2>Contatti</h2>
 
-    <div class="contact-info-section">
-      <h3>
-        Siamo a disposizione per richieste, preventivi e informazioni.
-        Scegli il canale che preferisci:
-      </h3>
+<div class="contact-info-section">
+<h3>Siamo a disposizione per richieste, preventivi e informazioni.</h3>
+<div class="contact-info-item">📱 <a href="tel:+41768036802">+41 76 803 68 02</a></div>
+<div class="contact-info-item">✉️ <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a></div>
+</div>
 
-      <div class="contact-info-item">
-        <span class="icon">📱</span>
-        <a href="tel:+41768036802">+41 76 803 68 02</a>
-      </div>
+<form action="https://formsubmit.co/info@srcarsolution.ch" method="POST">
+<input type="text" placeholder="Nome *" required>
+<input type="email" placeholder="Email *" required>
+<textarea placeholder="Messaggio *" required></textarea>
+<button type="submit">Invia</button>
+</form>
 
-      <div class="contact-info-item">
-        <span class="icon">✉️</span>
-        <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a>
-      </div>
-
-      <div class="contact-info-item">
-        <span class="icon">📝</span>
-        <p>Compila il formulario online qui di fianco</p>
-      </div>
-    </div>
-
-    <!-- ✅ WORKING FORM -->
-    <form action="https://formsubmit.co/info@srcarsolution.ch" method="POST">
-
-      <input type="hidden" name="_subject" value="New Contact from SR Car Solution">
-      <input type="hidden" name="_captcha" value="false">
-
-      <input type="text" name="Nome" placeholder="Nome *" required>
-      <input type="text" name="Cognome" placeholder="Cognome">
-      <input type="email" name="Email" placeholder="Email *" required>
-      <input type="tel" name="Telefono" placeholder="Telefono Mobile *" required>
-      <textarea name="Messaggio" placeholder="Messaggio *" required></textarea>
-
-      <button type="submit">Invia</button>
-
-    </form>
-
-  </div>
+</div>
 </section>
 
 <a href="privacy.html" class="privacy-link">Privacy Policy</a>
@@ -383,21 +318,8 @@ button:hover{
 gsap.registerPlugin(Observer);
 
 const sections = gsap.utils.toArray(".section");
-const indexLinks = document.querySelectorAll(".section-index a");
-const videos = document.querySelectorAll("video");
-
 let current = 0;
 let animating = false;
-
-function playVideo(index){
-  videos.forEach((v,i)=>{
-    v.pause();
-    if(i===index){
-      v.currentTime=0;
-      v.play().catch(()=>{});
-    }
-  });
-}
 
 function goTo(index){
   if(animating||index===current)return;
@@ -412,55 +334,30 @@ function goTo(index){
       from.classList.remove("active");
       current=index;
       animating=false;
-      syncIndex();
-      playVideo(index);
     }
   })
   .to(from,{opacity:0,duration:0.6})
   .fromTo(to,{opacity:0},{opacity:1,duration:0.6},0);
 }
 
-function syncIndex(){
-  indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
-}
-
+/* 🔥 MOBILE REVERSE SCROLL */
 Observer.create({
   type:"wheel,touch",
-  onDown:()=>goTo((current+1)%sections.length),
-  onUp:()=>goTo((current-1+sections.length)%sections.length)
+  onDown:()=>{
+    if(window.innerWidth<=768){
+      goTo((current-1+sections.length)%sections.length);
+    }else{
+      goTo((current+1)%sections.length);
+    }
+  },
+  onUp:()=>{
+    if(window.innerWidth<=768){
+      goTo((current+1)%sections.length);
+    }else{
+      goTo((current-1+sections.length)%sections.length);
+    }
+  }
 });
-
-indexLinks.forEach(link=>{
-  link.onclick=e=>{
-    e.preventDefault();
-    goTo(+link.dataset.i);
-  };
-});
-
-const rimacMenu = document.getElementById("rimacMenu");
-const menuBtn = document.getElementById("menuBtnTop");
-const menuClose = document.getElementById("menuClose");
-
-document.querySelectorAll(".main-links a").forEach(link=>{
-  link.onclick=()=>{
-    goTo(+link.dataset.i);
-    rimacMenu.classList.remove("active");
-  };
-});
-
-menuBtn.onclick = () => {
-  rimacMenu.classList.toggle("active");
-};
-
-menuClose.onclick = () => {
-  rimacMenu.classList.remove("active");
-};
-
-function openPage(page){
-  window.location.href=page;
-}
-
-playVideo(0);
 </script>
 
 </body>
