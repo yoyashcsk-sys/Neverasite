@@ -165,7 +165,7 @@ button:hover{
   margin-right:10px;
 }
 
-/* CONTATTI FIX */
+/* CONTATTI FIX BASE */
 .section.contatti{
   position:relative;
   height:100vh;
@@ -249,7 +249,7 @@ button:hover{
 }
 .privacy-link:hover{color:#fff}
 
-/* MOBILE */
+/* MOBILE FINAL FIX */
 @media (max-width:768px){
 
   .logo-center span{font-size:16px;}
@@ -257,25 +257,31 @@ button:hover{
 
   .section.contatti{
     padding-top:100px;
+    padding-bottom:80px;
   }
 
   .section.contatti .content{
-    width:85%;
-    max-width:260px;
-    padding:12px;
+    width:90%;
+    max-width:300px;
+    padding:14px;
     background:#fff;
     border-radius:10px;
   }
 
   .contatti input,
   .contatti textarea{
-    padding:7px;
+    padding:8px;
     font-size:13px;
+  }
+
+  .contatti textarea{
+    min-height:90px;
   }
 
   .contatti button{
     width:100%;
-    padding:9px;
+    padding:12px;
+    margin-bottom:20px;
   }
 
   .rimac-links{
@@ -308,8 +314,6 @@ button:hover{
 </div>
 
 <div class="rimac-menu" id="rimacMenu">
-
-  <!-- CLOSE BUTTON -->
   <div id="menuClose">✕</div>
 
   <div class="rimac-links">
