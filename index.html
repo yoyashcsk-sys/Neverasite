@@ -165,8 +165,20 @@ button:hover{
   margin-right:10px;
 }
 
-/* GLASS EFFECT */
+/* CONTATTI FIX */
+.section.contatti{
+  position:relative;
+  height:100vh;
+  overflow-y:auto;
+  align-items:flex-start;
+  padding-top:100px;
+  padding-bottom:40px;
+}
+
 .section.contatti .content{
+  width:100%;
+  max-width:320px;
+  margin:auto;
   box-shadow:0 10px 40px rgba(0,0,0,0.15);
 }
 
@@ -215,6 +227,16 @@ button:hover{
   color:#fff;
 }
 
+/* CLOSE BTN */
+#menuClose{
+  position:absolute;
+  top:25px;
+  right:30px;
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+}
+
 /* PRIVACY */
 .privacy-link{
   position:fixed;
@@ -234,15 +256,12 @@ button:hover{
   .logo-center img{height:36px;}
 
   .section.contatti{
-    align-items:flex-start;
-    overflow-y:auto;
-    padding-top:90px;
+    padding-top:100px;
   }
 
   .section.contatti .content{
     width:85%;
     max-width:260px;
-    margin:auto;
     padding:12px;
     background:#fff;
     border-radius:10px;
@@ -289,6 +308,10 @@ button:hover{
 </div>
 
 <div class="rimac-menu" id="rimacMenu">
+
+  <!-- CLOSE BUTTON -->
+  <div id="menuClose">✕</div>
+
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -450,6 +473,7 @@ indexLinks.forEach(link=>{
 
 const rimacMenu = document.getElementById("rimacMenu");
 const menuBtn = document.getElementById("menuBtnTop");
+const menuClose = document.getElementById("menuClose");
 
 document.querySelectorAll(".main-links a").forEach(link=>{
   link.onclick=()=>{
@@ -460,6 +484,10 @@ document.querySelectorAll(".main-links a").forEach(link=>{
 
 menuBtn.onclick = () => {
   rimacMenu.classList.toggle("active");
+};
+
+menuClose.onclick = () => {
+  rimacMenu.classList.remove("active");
 };
 
 function openPage(page){
