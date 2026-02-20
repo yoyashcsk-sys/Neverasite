@@ -165,14 +165,15 @@ button:hover{
   margin-right:10px;
 }
 
-/* CONTATTI FIX BASE */
+/* CONTATTI FIX FINAL */
 .section.contatti{
   position:relative;
-  height:100vh;
+  height:auto;
+  min-height:100vh;
   overflow-y:auto;
   align-items:flex-start;
   padding-top:100px;
-  padding-bottom:40px;
+  padding-bottom:120px;
 }
 
 .section.contatti .content{
@@ -180,6 +181,10 @@ button:hover{
   max-width:320px;
   margin:auto;
   box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+.contatti button{
+  display:block;
 }
 
 /* LEFT MENU */
@@ -249,7 +254,7 @@ button:hover{
 }
 .privacy-link:hover{color:#fff}
 
-/* MOBILE FINAL FIX */
+/* MOBILE */
 @media (max-width:768px){
 
   .logo-center span{font-size:16px;}
@@ -257,7 +262,7 @@ button:hover{
 
   .section.contatti{
     padding-top:100px;
-    padding-bottom:80px;
+    padding-bottom:120px;
   }
 
   .section.contatti .content{
