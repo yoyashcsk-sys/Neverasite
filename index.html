@@ -23,6 +23,15 @@ html,body{
   touch-action:none;
 }
 
+/* ✅🔥 MOBILE SCROLL FIX (ONLY CHANGE) */
+@media (max-width:768px){
+  html,body{
+    overflow-x:hidden;
+    overflow-y:auto;
+    touch-action:auto;
+  }
+}
+
 /* TOP BAR */
 .top-bar{
   position:fixed;
@@ -177,10 +186,10 @@ button:hover{
   scroll-behavior:smooth;
 }
 
-/* 🔥 ONLY CHANGE: DESKTOP BIG FORM */
+/* DESKTOP FORM */
 .section.contatti .content{
   width:100%;
-  max-width:600px; /* increased from 320px */
+  max-width:600px;
   margin:auto;
   padding:40px;
   box-shadow:0 20px 60px rgba(0,0,0,0.2);
@@ -264,7 +273,7 @@ button:hover{
 }
 .privacy-link:hover{color:#fff}
 
-/* MOBILE (UNCHANGED — SMALL FORM) */
+/* MOBILE */
 @media (max-width:768px){
 
   .logo-center span{font-size:16px;}
