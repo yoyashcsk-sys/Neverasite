@@ -161,6 +161,14 @@ button:hover{
 .contact-info-item .icon{
   margin-right:10px;
 }
+.contact-info-item a{
+  text-decoration:none;
+  color:#555;
+  border-bottom:1px solid #ccc;
+}
+.contact-info-item a:hover{
+  color:#000;
+}
 
 /* PRIVACY */
 .privacy-link{
@@ -183,6 +191,12 @@ button:hover{
   flex-direction:column;
   gap:14px;
 }
+.section-index a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.35;
+}
+.section-index a.active{opacity:1}
 
 /* RIGHT MENU */
 .rimac-menu{
@@ -212,7 +226,7 @@ button:hover{
   color:#fff;
 }
 
-/* MOBILE FIX */
+/* MOBILE FIXES */
 @media (max-width:768px){
 
   .rimac-top{display:none;}
@@ -253,75 +267,7 @@ button:hover{
 
 <body>
 
-<div class="top-bar">
-  <div class="logo-center">
-    <img src="sr-logo.png">
-    <span>SR Car Solution SAGL</span>
-  </div>
-
-  <div class="menu-btn" id="menuBtnTop">
-    <span></span><span></span><span></span>
-  </div>
-</div>
-
-<div class="section-index">
-  <a data-i="0" class="active">01 SR CAR SOLUTION</a>
-  <a data-i="1">02 CAR DETAILING</a>
-  <a data-i="2">03 SERVIZI</a>
-  <a data-i="3">04 CHI SIAMO</a>
-  <a data-i="4">05 CONTATTI</a>
-</div>
-
-<div class="rimac-menu" id="rimacMenu">
-  <div class="rimac-top">
-    <div>SR CAR SOLUTION</div>
-    <div id="menuClose">✕</div>
-  </div>
-
-  <div class="rimac-links">
-    <div class="main-links">
-      <a data-i="0">SR CAR SOLUTION</a>
-      <a data-i="1">CAR DETAILING</a>
-      <a data-i="2">SERVIZI</a>
-      <a data-i="3">CHI SIAMO</a>
-      <a data-i="4">CONTATTI</a>
-    </div>
-  </div>
-</div>
-
-<section class="section active">
-  <video autoplay muted loop playsinline src="hero.mp4"></video>
-  <div class="content">
-    <h1>SR CAR SOLUTION</h1>
-    <p>Eccellenza nella cura dell’auto.</p>
-  </div>
-</section>
-
-<section class="section contatti">
-  <div class="content">
-    <h2>Contatti</h2>
-
-    <form>
-      <input placeholder="Nome">
-      <input placeholder="Email">
-      <textarea placeholder="Messaggio"></textarea>
-      <button>Invia</button>
-    </form>
-  </div>
-</section>
-
-<script>
-const menuBtn = document.getElementById("menuBtnTop");
-const menu = document.getElementById("rimacMenu");
-const close = document.getElementById("menuClose");
-
-menuBtn.onclick = ()=> menu.classList.toggle("active");
-close.onclick = ()=> menu.classList.remove("active");
-</script>
-
-</head>
-
-<body>
+<!-- ===== FULL ORIGINAL BODY ===== -->
 
 <div class="top-bar">
   <div class="logo-center">
@@ -348,7 +294,6 @@ close.onclick = ()=> menu.classList.remove("active");
     <div id="menuClose">✕</div>
   </div>
 
-  <!-- MENU CONTENT (RESTORED) -->
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -398,6 +343,7 @@ close.onclick = ()=> menu.classList.remove("active");
 
 <section class="section contatti">
   <div class="content">
+    
     <h2>Contatti</h2>
 
     <div class="contact-info-section">
@@ -434,6 +380,7 @@ close.onclick = ()=> menu.classList.remove("active");
 
       <button type="submit">Invia</button>
     </form>
+
   </div>
 </section>
 
