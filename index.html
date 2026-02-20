@@ -161,14 +161,6 @@ button:hover{
 .contact-info-item .icon{
   margin-right:10px;
 }
-.contact-info-item a{
-  text-decoration:none;
-  color:#555;
-  border-bottom:1px solid #ccc;
-}
-.contact-info-item a:hover{
-  color:#000;
-}
 
 /* PRIVACY */
 .privacy-link{
@@ -190,17 +182,9 @@ button:hover{
   display:flex;
   flex-direction:column;
   gap:14px;
-  font-size:.75rem;
-  letter-spacing:.35em;
 }
-.section-index a{
-  color:#fff;
-  text-decoration:none;
-  opacity:.35;
-}
-.section-index a.active{opacity:1}
 
-/* RIGHT MENU FIX */
+/* RIGHT MENU */
 .rimac-menu{
   position:fixed;
   inset:0;
@@ -219,75 +203,122 @@ button:hover{
   position:absolute;
   top:140px;
   left:60px;
-  z-index:1001;
 }
 
 .main-links a{
   display:block;
   font-size:1.6rem;
   margin-bottom:20px;
-  cursor:pointer;
   color:#fff;
 }
 
-/* MOBILE FIXES */
+/* MOBILE FIX */
 @media (max-width:768px){
 
-  .logo-center{
-    min-width:0;
-    max-width:70%;
-  }
-  .logo-center span{
-    font-size:14px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-  .logo-center img{
-    height:32px;
-  }
-
-  .section-index{
-    z-index:5;
-    opacity:0.25;
-  }
+  .rimac-top{display:none;}
 
   .section.contatti{
     align-items:flex-start;
-    justify-content:center;
     overflow-y:auto;
     padding-top:100px;
-    padding-bottom:80px;
   }
 
   .section.contatti .content{
-    width:90%;
-    max-width:380px;
+    width:85%;
+    max-width:300px;
     margin:auto;
-    padding:18px;
-    text-align:left;
+    padding:14px;
     background:#fff;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    border-radius:10px;
   }
 
   .contatti input,
   .contatti textarea{
-    padding:10px;
-    font-size:14px;
+    padding:8px;
+    font-size:13px;
   }
 
   .contatti button{
     width:100%;
-    padding:12px;
+    padding:10px;
   }
 
   .rimac-links{
-    left:30px;
-    top:120px;
+    left:25px;
+    top:110px;
   }
 }
 </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <div class="logo-center">
+    <img src="sr-logo.png">
+    <span>SR Car Solution SAGL</span>
+  </div>
+
+  <div class="menu-btn" id="menuBtnTop">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<div class="section-index">
+  <a data-i="0" class="active">01 SR CAR SOLUTION</a>
+  <a data-i="1">02 CAR DETAILING</a>
+  <a data-i="2">03 SERVIZI</a>
+  <a data-i="3">04 CHI SIAMO</a>
+  <a data-i="4">05 CONTATTI</a>
+</div>
+
+<div class="rimac-menu" id="rimacMenu">
+  <div class="rimac-top">
+    <div>SR CAR SOLUTION</div>
+    <div id="menuClose">✕</div>
+  </div>
+
+  <div class="rimac-links">
+    <div class="main-links">
+      <a data-i="0">SR CAR SOLUTION</a>
+      <a data-i="1">CAR DETAILING</a>
+      <a data-i="2">SERVIZI</a>
+      <a data-i="3">CHI SIAMO</a>
+      <a data-i="4">CONTATTI</a>
+    </div>
+  </div>
+</div>
+
+<section class="section active">
+  <video autoplay muted loop playsinline src="hero.mp4"></video>
+  <div class="content">
+    <h1>SR CAR SOLUTION</h1>
+    <p>Eccellenza nella cura dell’auto.</p>
+  </div>
+</section>
+
+<section class="section contatti">
+  <div class="content">
+    <h2>Contatti</h2>
+
+    <form>
+      <input placeholder="Nome">
+      <input placeholder="Email">
+      <textarea placeholder="Messaggio"></textarea>
+      <button>Invia</button>
+    </form>
+  </div>
+</section>
+
+<script>
+const menuBtn = document.getElementById("menuBtnTop");
+const menu = document.getElementById("rimacMenu");
+const close = document.getElementById("menuClose");
+
+menuBtn.onclick = ()=> menu.classList.toggle("active");
+close.onclick = ()=> menu.classList.remove("active");
+</script>
+
 </head>
 
 <body>
