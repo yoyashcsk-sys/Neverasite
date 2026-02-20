@@ -218,6 +218,7 @@ button:hover{
 /* ================= MOBILE FIXES ================= */
 @media (max-width:768px){
 
+  /* LOGO */
   .logo-center{
     min-width:0;
     max-width:70%;
@@ -232,31 +233,43 @@ button:hover{
     height:32px;
   }
 
+  /* LEFT MENU */
   .section-index{
     z-index:5;
     opacity:0.25;
   }
 
+  /* 🔥 CONTACT FORM SIZE FIX */
   .section.contatti{
     align-items:flex-start;
     overflow-y:auto;
-    padding-top:100px;
-    padding-bottom:100px;
+    padding-top:90px;
+    padding-bottom:80px;
   }
 
   .section.contatti .content{
     width:100%;
-    max-width:100%;
+    max-width:420px;
+    margin:auto;
+    padding:15px;
     text-align:left;
-    padding:20px;
+  }
+
+  .contatti input,
+  .contatti textarea{
+    padding:10px;
+    font-size:14px;
+  }
+
+  .contatti button{
+    padding:12px;
+    width:100%;
   }
 }
 </style>
 </head>
 
 <body>
-
-<!-- 🔥 SAME ORIGINAL BODY (UNCHANGED) -->
 
 <div class="top-bar">
   <div class="logo-center">
@@ -283,6 +296,7 @@ button:hover{
     <div id="menuClose">✕</div>
   </div>
 
+  <!-- ✅ RESTORED MENU CONTENT -->
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -295,7 +309,7 @@ button:hover{
   </div>
 </div>
 
-<!-- ALL YOUR SECTIONS SAME -->
+<!-- ALL SECTIONS SAME -->
 <section class="section active">
   <video autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="content">
