@@ -200,12 +200,12 @@ button:hover{
 }
 .section-index a.active{opacity:1}
 
-/* MENU */
+/* RIGHT MENU FIX */
 .rimac-menu{
   position:fixed;
   inset:0;
   background:radial-gradient(circle at right,#0e2b34,#07181f);
-  z-index:200;
+  z-index:1000;
   opacity:0;
   pointer-events:none;
   transition:.6s;
@@ -215,10 +215,24 @@ button:hover{
   pointer-events:auto;
 }
 
-/* ================= MOBILE FIXES ================= */
+.rimac-links{
+  position:absolute;
+  top:140px;
+  left:60px;
+  z-index:1001;
+}
+
+.main-links a{
+  display:block;
+  font-size:1.6rem;
+  margin-bottom:20px;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* MOBILE FIXES */
 @media (max-width:768px){
 
-  /* LOGO */
   .logo-center{
     min-width:0;
     max-width:70%;
@@ -233,26 +247,28 @@ button:hover{
     height:32px;
   }
 
-  /* LEFT MENU */
   .section-index{
     z-index:5;
     opacity:0.25;
   }
 
-  /* 🔥 CONTACT FORM SIZE FIX */
   .section.contatti{
     align-items:flex-start;
+    justify-content:center;
     overflow-y:auto;
-    padding-top:90px;
+    padding-top:100px;
     padding-bottom:80px;
   }
 
   .section.contatti .content{
-    width:100%;
-    max-width:420px;
+    width:90%;
+    max-width:380px;
     margin:auto;
-    padding:15px;
+    padding:18px;
     text-align:left;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
   }
 
   .contatti input,
@@ -262,8 +278,13 @@ button:hover{
   }
 
   .contatti button{
-    padding:12px;
     width:100%;
+    padding:12px;
+  }
+
+  .rimac-links{
+    left:30px;
+    top:120px;
   }
 }
 </style>
@@ -296,7 +317,7 @@ button:hover{
     <div id="menuClose">✕</div>
   </div>
 
-  <!-- ✅ RESTORED MENU CONTENT -->
+  <!-- MENU CONTENT (RESTORED) -->
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -309,7 +330,6 @@ button:hover{
   </div>
 </div>
 
-<!-- ALL SECTIONS SAME -->
 <section class="section active">
   <video autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="content">
@@ -350,7 +370,10 @@ button:hover{
     <h2>Contatti</h2>
 
     <div class="contact-info-section">
-      <h3>Siamo a disposizione per richieste, preventivi e informazioni.</h3>
+      <h3>
+        Siamo a disposizione per richieste, preventivi e informazioni.
+        Scegli il canale che preferisci:
+      </h3>
 
       <div class="contact-info-item">
         <span class="icon">📱</span>
