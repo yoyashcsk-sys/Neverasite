@@ -23,15 +23,6 @@ html,body{
   touch-action:none;
 }
 
-/* ✅🔥 MOBILE SCROLL FIX (ONLY CHANGE) */
-@media (max-width:768px){
-  html,body{
-    overflow-x:hidden;
-    overflow-y:auto;
-    touch-action:auto;
-  }
-}
-
 /* TOP BAR */
 .top-bar{
   position:fixed;
@@ -174,7 +165,7 @@ button:hover{
   margin-right:10px;
 }
 
-/* CONTATTI FINAL FIX */
+/* CONTATTI */
 .section.contatti{
   position:relative;
   height:auto;
@@ -183,10 +174,8 @@ button:hover{
   align-items:flex-start;
   padding-top:70px;
   padding-bottom:120px;
-  scroll-behavior:smooth;
 }
 
-/* DESKTOP FORM */
 .section.contatti .content{
   width:100%;
   max-width:600px;
@@ -202,8 +191,6 @@ button:hover{
   padding:14px;
   margin-top:20px;
   margin-bottom:40px;
-  position:relative;
-  z-index:5;
 }
 
 /* LEFT MENU */
@@ -273,7 +260,7 @@ button:hover{
 }
 .privacy-link:hover{color:#fff}
 
-/* MOBILE */
+/* 🔥🔥 FINAL MOBILE FIX */
 @media (max-width:768px){
 
   .logo-center span{font-size:16px;}
@@ -281,25 +268,60 @@ button:hover{
 
   .section.contatti{
     padding-top:70px;
-    padding-bottom:120px;
+    padding-bottom:80px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
   }
 
   .section.contatti .content{
-    width:90%;
-    max-width:300px;
-    padding:14px;
+    width:92%;
+    max-width:340px;
+    height:75vh;
+    overflow-y:auto;
+    padding:16px;
     background:#fff;
-    border-radius:10px;
+    border-radius:14px;
+  }
+
+  .content h2{
+    font-size:20px;
+    margin-bottom:10px;
+  }
+
+  .contact-info-section h3{
+    font-size:14px;
+    line-height:1.4;
+    margin-bottom:12px;
+  }
+
+  .contact-info-item{
+    font-size:13px;
+    margin-bottom:8px;
   }
 
   .contatti input,
   .contatti textarea{
     padding:8px;
     font-size:13px;
+    margin:6px 0;
   }
 
   .contatti textarea{
-    min-height:90px;
+    min-height:70px;
+  }
+
+  .contatti button{
+    position:sticky;
+    bottom:0;
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    font-size:14px;
+    background:#111;
+    color:#fff;
+    border-radius:8px;
+    z-index:10;
   }
 
   .rimac-links{
@@ -333,7 +355,6 @@ button:hover{
 
 <div class="rimac-menu" id="rimacMenu">
   <div id="menuClose">✕</div>
-
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -345,8 +366,9 @@ button:hover{
   </div>
 </div>
 
+<!-- SECTIONS SAME AS BEFORE -->
 <section class="section active">
-  <video autoplay muted loop playsinline webkit-playsinline src="hero.mp4"></video>
+  <video autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="content">
     <h1>SR CAR SOLUTION</h1>
     <p>Eccellenza nella cura dell’auto.</p>
@@ -354,7 +376,7 @@ button:hover{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline webkit-playsinline src="tech-video.mp4"></video>
+  <video autoplay muted loop playsinline src="tech-video.mp4"></video>
   <div class="content">
     <h2>CAR DETAILING</h2>
     <p>Servizi professionali per ogni veicolo.</p>
@@ -363,7 +385,7 @@ button:hover{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline webkit-playsinline src="dev-video.mp4"></video>
+  <video autoplay muted loop playsinline src="dev-video.mp4"></video>
   <div class="content">
     <h2>SERVIZI</h2>
     <p>Soluzioni automotive complete con precisione.</p>
@@ -372,7 +394,7 @@ button:hover{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline webkit-playsinline src="about-video.mp4"></video>
+  <video autoplay muted loop playsinline src="about-video.mp4"></video>
   <div class="content">
     <h2>CHI SIAMO</h2>
     <p>Passione e qualità al servizio del cliente.</p>
@@ -385,37 +407,19 @@ button:hover{
     <h2>Contatti</h2>
 
     <div class="contact-info-section">
-      <h3>
-        Siamo a disposizione per richieste, preventivi e informazioni.
-        Scegli il canale che preferisci:
-      </h3>
+      <h3>Siamo a disposizione per richieste, preventivi e informazioni.</h3>
 
-      <div class="contact-info-item">
-        <span class="icon">📱</span>
-        <a href="tel:+41768036802">+41 76 803 68 02</a>
-      </div>
-
-      <div class="contact-info-item">
-        <span class="icon">✉️</span>
-        <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a>
-      </div>
-
-      <div class="contact-info-item">
-        <span class="icon">📝</span>
-        <p>Compila il formulario online qui di fianco</p>
-      </div>
+      <div class="contact-info-item">📱 <a href="tel:+41768036802">+41 76 803 68 02</a></div>
+      <div class="contact-info-item">✉️ <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a></div>
+      <div class="contact-info-item">📝 <p>Compila il formulario qui sotto</p></div>
     </div>
 
     <form action="https://formsubmit.co/info@srcarsolution.ch" method="POST">
-      <input type="hidden" name="_subject" value="New Contact from SR Car Solution">
-      <input type="hidden" name="_captcha" value="false">
-
       <input type="text" name="Nome" placeholder="Nome *" required>
       <input type="text" name="Cognome" placeholder="Cognome">
       <input type="email" name="Email" placeholder="Email *" required>
       <input type="tel" name="Telefono" placeholder="Telefono Mobile *" required>
       <textarea name="Messaggio" placeholder="Messaggio *" required></textarea>
-
       <button type="submit">Invia</button>
     </form>
   </div>
@@ -427,21 +431,8 @@ button:hover{
 gsap.registerPlugin(Observer);
 
 const sections = gsap.utils.toArray(".section");
-const indexLinks = document.querySelectorAll(".section-index a");
-const videos = document.querySelectorAll("video");
-
 let current = 0;
 let animating = false;
-
-function playVideo(index){
-  videos.forEach((v,i)=>{
-    v.pause();
-    if(i===index){
-      v.currentTime=0;
-      v.play().catch(()=>{});
-    }
-  });
-}
 
 function goTo(index){
   if(animating||index===current)return;
@@ -456,67 +447,21 @@ function goTo(index){
       from.classList.remove("active");
       current=index;
       animating=false;
-      syncIndex();
-      playVideo(index);
     }
   })
-  .to(from,{opacity:0,duration:0.6,ease:"power2.out"})
-  .fromTo(to,{opacity:0},{opacity:1,duration:0.6,ease:"power2.out"},0);
-}
-
-function syncIndex(){
-  indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
+  .to(from,{opacity:0,duration:0.6})
+  .fromTo(to,{opacity:0},{opacity:1,duration:0.6},0);
 }
 
 Observer.create({
   type:"wheel,touch",
-  onDown:()=>{
-    if(window.innerWidth<=768){
-      goTo((current-1+sections.length)%sections.length);
-    }else{
-      goTo((current+1)%sections.length);
-    }
-  },
-  onUp:()=>{
-    if(window.innerWidth<=768){
-      goTo((current+1)%sections.length);
-    }else{
-      goTo((current-1+sections.length)%sections.length);
-    }
-  }
+  onDown:()=>goTo((current+1)%sections.length),
+  onUp:()=>goTo((current-1+sections.length)%sections.length)
 });
-
-indexLinks.forEach(link=>{
-  link.onclick=e=>{
-    e.preventDefault();
-    goTo(+link.dataset.i);
-  };
-});
-
-const rimacMenu = document.getElementById("rimacMenu");
-const menuBtn = document.getElementById("menuBtnTop");
-const menuClose = document.getElementById("menuClose");
-
-document.querySelectorAll(".main-links a").forEach(link=>{
-  link.onclick=()=>{
-    goTo(+link.dataset.i);
-    rimacMenu.classList.remove("active");
-  };
-});
-
-menuBtn.onclick = () => {
-  rimacMenu.classList.toggle("active");
-};
-
-menuClose.onclick = () => {
-  rimacMenu.classList.remove("active");
-};
 
 function openPage(page){
   window.location.href=page;
 }
-
-playVideo(0);
 </script>
 
 </body>
