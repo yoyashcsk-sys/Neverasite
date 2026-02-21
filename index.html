@@ -260,68 +260,65 @@ button:hover{
 }
 .privacy-link:hover{color:#fff}
 
-/* 🔥 MOBILE FIX */
+/* 🔥 FINAL MOBILE FIX */
 @media (max-width:768px){
 
   .logo-center span{font-size:16px;}
   .logo-center img{height:36px;}
 
   .section.contatti{
-    padding-top:70px;
-    padding-bottom:80px;
     display:flex;
     justify-content:center;
-    align-items:flex-start;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
   }
 
   .section.contatti .content{
     width:92%;
-    max-width:340px;
-    height:75vh;
+    max-width:330px;
+    height:70vh;
+    max-height:520px;
     overflow-y:auto;
-    padding:16px;
+    padding:14px;
     background:#fff;
     border-radius:14px;
   }
 
   .content h2{
-    font-size:20px;
-    margin-bottom:10px;
+    font-size:18px;
+    margin-bottom:8px;
   }
 
   .contact-info-section h3{
-    font-size:14px;
-    line-height:1.4;
-    margin-bottom:12px;
+    font-size:13px;
+    margin-bottom:10px;
   }
 
   .contact-info-item{
-    font-size:13px;
-    margin-bottom:8px;
+    font-size:12px;
+    margin-bottom:6px;
   }
 
   .contatti input,
   .contatti textarea{
-    padding:8px;
-    font-size:13px;
-    margin:6px 0;
+    padding:7px;
+    font-size:12px;
+    margin:5px 0;
   }
 
   .contatti textarea{
-    min-height:70px;
+    min-height:60px;
   }
 
   .contatti button{
-    position:sticky;
-    bottom:0;
     width:100%;
-    margin-top:10px;
-    padding:12px;
-    font-size:14px;
+    padding:10px;
+    font-size:13px;
+    margin-top:8px;
     background:#111;
     color:#fff;
     border-radius:8px;
-    z-index:10;
   }
 
   .rimac-links{
@@ -366,6 +363,7 @@ button:hover{
   </div>
 </div>
 
+<!-- SECTIONS -->
 <section class="section active">
   <video autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="content">
