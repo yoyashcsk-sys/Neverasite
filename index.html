@@ -434,8 +434,27 @@ function syncIndex(){
 
 Observer.create({
   type:"wheel,touch",
-  onDown:()=>goTo((current+1)%sections.length),
-  onUp:()=>goTo((current-1+sections.length)%sections.length)
+
+  onDown:()=>{
+    if(window.innerWidth <= 1024){
+      // 📱 Mobile + iPad → REVERSE
+      goTo((current-1+sections.length)%sections.length);
+    }else{
+      // 💻 Desktop → NORMAL
+      goTo((current+1)%sections.length);
+    }
+  },
+
+  onUp:()=>{
+    if(window.innerWidth <= 1024){
+      // 📱 Mobile + iPad → REVERSE
+      goTo((current+1)%sections.length);
+    }else{
+      // 💻 Desktop → NORMAL
+      goTo((current-1+sections.length)%sections.length);
+    }
+  }
+
 });
 
 indexLinks.forEach(link=>{
