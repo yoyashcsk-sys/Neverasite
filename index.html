@@ -37,9 +37,18 @@ html,body{
 
 /* CENTER LOGO */
 
+/* DEFAULT (desktop + iPad safe) */
 .nav-logo{
-  height:auto;
-  max-width:300px;
+  height:70px;
+  width:auto;
+  object-fit:contain;
+}
+
+/* 📱 PHONE ONLY */
+@media (max-width:480px){
+  .nav-logo{
+    height:300px;   /* जैसा तू चाहता है */
+  }
 }
 
 /* MENU BTN */
