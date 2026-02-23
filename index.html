@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -29,28 +28,17 @@ html,body{
   top:0;
   width:100%;
   height:80px;
-  background:#fff;
+  background:#000;
   display:flex;
-  justify-content:space-between;
+  justify-content:center; /* CENTER */
   align-items:center;
-  padding:0 20px;
   z-index:500;
 }
 
-/* LOGO */
-.logo-center{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-.logo-center img{height:42px;}
-
-.logo-center span{
-  color:#c62828;
-  font-weight:700;
-  font-size:20px;
-  letter-spacing:1px;
-  white-space:nowrap;
+/* CENTER LOGO */
+.nav-logo{
+  height:45px;
+  object-fit:contain;
 }
 
 /* MENU BTN */
@@ -64,7 +52,7 @@ html,body{
   display:block;
   width:25px;
   height:2px;
-  background:#000;
+  background:#fff;
   margin:6px 0;
 }
 
@@ -105,12 +93,15 @@ html,body{
   padding:0 20px;
 }
 h1,h2{
-  letter-spacing:.25em;
   margin-bottom:20px;
   font-weight:300;
 }
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
 h2{font-size:clamp(2rem,4vw,3rem)}
+
+.tight{letter-spacing:0}
+.spaced{letter-spacing:.25em}
+
 p{opacity:.9;line-height:1.6}
 
 /* BUTTON */
@@ -174,6 +165,7 @@ button:hover{
   align-items:flex-start;
   padding-top:70px;
   padding-bottom:120px;
+  scroll-behavior:smooth;
 }
 
 .section.contatti .content{
@@ -191,6 +183,8 @@ button:hover{
   padding:14px;
   margin-top:20px;
   margin-bottom:40px;
+  position:relative;
+  z-index:5;
 }
 
 /* LEFT MENU */
@@ -259,84 +253,16 @@ button:hover{
   z-index:200;
 }
 .privacy-link:hover{color:#fff}
-
-/* 🔥 FINAL MOBILE FIX */
-@media (max-width:768px){
-
-  .logo-center span{font-size:16px;}
-  .logo-center img{height:36px;}
-
-  .section.contatti{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    overflow:hidden;
-  }
-
-  .section.contatti .content{
-    width:92%;
-    max-width:330px;
-    height:70vh;
-    max-height:520px;
-    overflow-y:auto;
-    padding:14px;
-    background:#fff;
-    border-radius:14px;
-  }
-
-  .content h2{
-    font-size:18px;
-    margin-bottom:8px;
-  }
-
-  .contact-info-section h3{
-    font-size:13px;
-    margin-bottom:10px;
-  }
-
-  .contact-info-item{
-    font-size:12px;
-    margin-bottom:6px;
-  }
-
-  .contatti input,
-  .contatti textarea{
-    padding:7px;
-    font-size:12px;
-    margin:5px 0;
-  }
-
-  .contatti textarea{
-    min-height:60px;
-  }
-
-  .contatti button{
-    width:100%;
-    padding:10px;
-    font-size:13px;
-    margin-top:8px;
-    background:#111;
-    color:#fff;
-    border-radius:8px;
-  }
-
-  .rimac-links{
-    left:25px;
-    top:110px;
-  }
-}
 </style>
 </head>
 
 <body>
 
 <div class="top-bar">
-  <div class="logo-center">
-    <img src="sr-logo.png">
-    <span>SR Car Solution SAGL</span>
-  </div>
+  <!-- CENTER LOGO -->
+  <img src="logo.png" class="nav-logo">
 
+  <!-- MENU -->
   <div class="menu-btn" id="menuBtnTop">
     <span></span><span></span><span></span>
   </div>
@@ -363,15 +289,18 @@ button:hover{
   </div>
 </div>
 
-<!-- SECTIONS -->
 <section class="section active">
   <video autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="content">
-    <h1>SR CAR SOLUTION</h1>
+    <h1>
+      <span class="tight">SR CAR</span>
+      <span class="spaced">SOLUTION</span>
+    </h1>
     <p>Eccellenza nella cura dell’auto.</p>
   </div>
 </section>
 
+<!-- REST SAME -->
 <section class="section">
   <video autoplay muted loop playsinline src="tech-video.mp4"></video>
   <div class="content">
@@ -404,19 +333,37 @@ button:hover{
     <h2>Contatti</h2>
 
     <div class="contact-info-section">
-      <h3>Siamo a disposizione per richieste, preventivi e informazioni.</h3>
+      <h3>
+        Siamo a disposizione per richieste, preventivi e informazioni.
+        Scegli il canale che preferisci:
+      </h3>
 
-      <div class="contact-info-item">📱 <a href="tel:+41768036802">+41 76 803 68 02</a></div>
-      <div class="contact-info-item">✉️ <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a></div>
-      <div class="contact-info-item">📝 <p>Compila il formulario qui sotto</p></div>
+      <div class="contact-info-item">
+        <span class="icon">📱</span>
+        <a href="tel:+41768036802">+41 76 803 68 02</a>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="icon">✉️</span>
+        <a href="mailto:info@srcarsolution.ch">info@srcarsolution.ch</a>
+      </div>
+
+      <div class="contact-info-item">
+        <span class="icon">📝</span>
+        <p>Compila il formulario online qui di fianco</p>
+      </div>
     </div>
 
     <form action="https://formsubmit.co/info@srcarsolution.ch" method="POST">
+      <input type="hidden" name="_subject" value="New Contact from SR Car Solution">
+      <input type="hidden" name="_captcha" value="false">
+
       <input type="text" name="Nome" placeholder="Nome *" required>
       <input type="text" name="Cognome" placeholder="Cognome">
       <input type="email" name="Email" placeholder="Email *" required>
       <input type="tel" name="Telefono" placeholder="Telefono Mobile *" required>
       <textarea name="Messaggio" placeholder="Messaggio *" required></textarea>
+
       <button type="submit">Invia</button>
     </form>
   </div>
@@ -445,18 +392,18 @@ function playVideo(index){
 }
 
 function goTo(index){
-  if(animating || index===current) return;
-  animating = true;
+  if(animating||index===current)return;
+  animating=true;
 
-  let from = sections[current];
-  let to = sections[index];
+  let from=sections[current];
+  let to=sections[index];
   to.classList.add("active");
 
   gsap.timeline({
     onComplete:()=>{
       from.classList.remove("active");
-      current = index;
-      animating = false;
+      current=index;
+      animating=false;
       syncIndex();
       playVideo(index);
     }
@@ -466,31 +413,17 @@ function goTo(index){
 }
 
 function syncIndex(){
-  indexLinks.forEach((l,i)=>{
-    l.classList.toggle("active", i===current);
-  });
+  indexLinks.forEach((l,i)=>l.classList.toggle("active",i===current));
 }
 
 Observer.create({
   type:"wheel,touch",
-  onDown:()=>{
-    if(window.innerWidth<=768){
-      goTo((current-1+sections.length)%sections.length);
-    } else {
-      goTo((current+1)%sections.length);
-    }
-  },
-  onUp:()=>{
-    if(window.innerWidth<=768){
-      goTo((current+1)%sections.length);
-    } else {
-      goTo((current-1+sections.length)%sections.length);
-    }
-  }
+  onDown:()=>goTo((current+1)%sections.length),
+  onUp:()=>goTo((current-1+sections.length)%sections.length)
 });
 
 indexLinks.forEach(link=>{
-  link.onclick = e=>{
+  link.onclick=e=>{
     e.preventDefault();
     goTo(+link.dataset.i);
   };
@@ -500,27 +433,21 @@ const rimacMenu = document.getElementById("rimacMenu");
 const menuBtn = document.getElementById("menuBtnTop");
 const menuClose = document.getElementById("menuClose");
 
-menuBtn.onclick = () => {
-  rimacMenu.classList.toggle("active");
-};
-
-menuClose.onclick = () => {
-  rimacMenu.classList.remove("active");
-};
-
 document.querySelectorAll(".main-links a").forEach(link=>{
-  link.onclick = ()=>{
+  link.onclick=()=>{
     goTo(+link.dataset.i);
     rimacMenu.classList.remove("active");
   };
 });
+
+menuBtn.onclick = () => rimacMenu.classList.toggle("active");
+menuClose.onclick = () => rimacMenu.classList.remove("active");
 
 function openPage(page){
   window.location.href=page;
 }
 
 playVideo(0);
-syncIndex();
 </script>
 
 </body>
