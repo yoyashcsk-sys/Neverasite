@@ -37,17 +37,23 @@ html,body{
 
 /* CENTER LOGO */
 
-/* DEFAULT (desktop + iPad safe) */
 .nav-logo{
-  height:70px;
+  height:65px;
   width:auto;
   object-fit:contain;
 }
 
-/* 📱 PHONE ONLY */
-@media (max-width:480px){
+/* iPad / Tablet */
+@media (min-width:768px){
   .nav-logo{
-    height:300px;   /* जैसा तू चाहता है */
+    height:75px;
+  }
+}
+
+/* Desktop */
+@media (min-width:1024px){
+  .nav-logo{
+    height:80px;
   }
 }
 
