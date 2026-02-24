@@ -1,3 +1,5 @@
+Index
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,33 +30,28 @@ html,body{
   top:0;
   width:100%;
   height:80px;
-  background:#000;
+  background:#fff;
   display:flex;
-  justify-content:center; /* CENTER */
+  justify-content:space-between;
   align-items:center;
+  padding:0 20px;
   z-index:500;
 }
 
-/* CENTER LOGO */
-
-.nav-logo{
-  height:65px;
-  width:auto;
-  object-fit:contain;
+/* LOGO */
+.logo-center{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
+.logo-center img{height:42px;}
 
-/* iPad / Tablet */
-@media (min-width:768px){
-  .nav-logo{
-    height:75px;
-  }
-}
-
-/* Desktop */
-@media (min-width:1024px){
-  .nav-logo{
-    height:80px;
-  }
+.logo-center span{
+  color:#c62828;
+  font-weight:700;
+  font-size:20px;
+  letter-spacing:1px;
+  white-space:nowrap;
 }
 
 /* MENU BTN */
@@ -68,7 +65,7 @@ html,body{
   display:block;
   width:25px;
   height:2px;
-  background:#fff;
+  background:#000;
   margin:6px 0;
 }
 
@@ -109,15 +106,12 @@ html,body{
   padding:0 20px;
 }
 h1,h2{
+  letter-spacing:.25em;
   margin-bottom:20px;
   font-weight:300;
 }
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
 h2{font-size:clamp(2rem,4vw,3rem)}
-
-.tight{letter-spacing:0}
-.spaced{letter-spacing:.25em}
-
 p{opacity:.9;line-height:1.6}
 
 /* BUTTON */
@@ -172,7 +166,7 @@ button:hover{
   margin-right:10px;
 }
 
-/* CONTATTI */
+/* CONTATTI FINAL FIX */
 .section.contatti{
   position:relative;
   height:auto;
@@ -184,6 +178,7 @@ button:hover{
   scroll-behavior:smooth;
 }
 
+/* DESKTOP BIG FORM */
 .section.contatti .content{
   width:100%;
   max-width:600px;
@@ -220,11 +215,12 @@ button:hover{
 }
 .section-index a.active{opacity:1}
 
-/* RIGHT MENU */
+/* RIGHT MENU — 🔥 FIXED BLACK */
 .rimac-menu{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at right,#0e2b34,#07181f);
+  background:rgba(0,0,0,0.95); /* ✅ FIXED */
+  backdrop-filter:blur(8px);   /* ✅ cinematic */
   z-index:1000;
   opacity:0;
   pointer-events:none;
@@ -269,16 +265,52 @@ button:hover{
   z-index:200;
 }
 .privacy-link:hover{color:#fff}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .logo-center span{font-size:16px;}
+  .logo-center img{height:36px;}
+
+  .section.contatti{
+    padding-top:70px;
+    padding-bottom:120px;
+  }
+
+  .section.contatti .content{
+    width:90%;
+    max-width:300px;
+    padding:14px;
+    background:#fff;
+    border-radius:10px;
+  }
+
+  .contatti input,
+  .contatti textarea{
+    padding:8px;
+    font-size:13px;
+  }
+
+  .contatti textarea{
+    min-height:90px;
+  }
+
+  .rimac-links{
+    left:25px;
+    top:110px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <div class="top-bar">
-  <!-- CENTER LOGO -->
-  <img src="logo.png" class="nav-logo">
+  <div class="logo-center">
+    <img src="sr-logo.png">
+    <span>SR Car Solution SAGL</span>
+  </div>
 
-  <!-- MENU -->
   <div class="menu-btn" id="menuBtnTop">
     <span></span><span></span><span></span>
   </div>
@@ -294,6 +326,7 @@ button:hover{
 
 <div class="rimac-menu" id="rimacMenu">
   <div id="menuClose">✕</div>
+
   <div class="rimac-links">
     <div class="main-links">
       <a data-i="0">SR CAR SOLUTION</a>
@@ -306,19 +339,15 @@ button:hover{
 </div>
 
 <section class="section active">
-  <video autoplay muted loop playsinline src="hero.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline src="hero.mp4"></video>
   <div class="content">
-    <h1>
-      <span class="tight">SR CAR</span>
-      <span class="spaced">SOLUTION</span>
-    </h1>
+    <h1>SR CAR SOLUTION</h1>
     <p>Eccellenza nella cura dell’auto.</p>
   </div>
 </section>
 
-<!-- REST SAME -->
 <section class="section">
-  <video autoplay muted loop playsinline src="tech-video.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline src="tech-video.mp4"></video>
   <div class="content">
     <h2>CAR DETAILING</h2>
     <p>Servizi professionali per ogni veicolo.</p>
@@ -327,7 +356,7 @@ button:hover{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline src="dev-video.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline src="dev-video.mp4"></video>
   <div class="content">
     <h2>SERVIZI</h2>
     <p>Soluzioni automotive complete con precisione.</p>
@@ -336,7 +365,7 @@ button:hover{
 </section>
 
 <section class="section">
-  <video autoplay muted loop playsinline src="about-video.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline src="about-video.mp4"></video>
   <div class="content">
     <h2>CHI SIAMO</h2>
     <p>Passione e qualità al servizio del cliente.</p>
@@ -424,8 +453,8 @@ function goTo(index){
       playVideo(index);
     }
   })
-  .to(from,{opacity:0,duration:0.6})
-  .fromTo(to,{opacity:0},{opacity:1,duration:0.6},0);
+  .to(from,{opacity:0,duration:0.6,ease:"power2.out"})
+  .fromTo(to,{opacity:0},{opacity:1,duration:0.6,ease:"power2.out"},0);
 }
 
 function syncIndex(){
@@ -434,27 +463,20 @@ function syncIndex(){
 
 Observer.create({
   type:"wheel,touch",
-
   onDown:()=>{
-    if(window.innerWidth <= 1024){
-      // 📱 Mobile + iPad → REVERSE
+    if(window.innerWidth<=768){
       goTo((current-1+sections.length)%sections.length);
     }else{
-      // 💻 Desktop → NORMAL
       goTo((current+1)%sections.length);
     }
   },
-
   onUp:()=>{
-    if(window.innerWidth <= 1024){
-      // 📱 Mobile + iPad → REVERSE
+    if(window.innerWidth<=768){
       goTo((current+1)%sections.length);
     }else{
-      // 💻 Desktop → NORMAL
       goTo((current-1+sections.length)%sections.length);
     }
   }
-
 });
 
 indexLinks.forEach(link=>{
@@ -475,8 +497,13 @@ document.querySelectorAll(".main-links a").forEach(link=>{
   };
 });
 
-menuBtn.onclick = () => rimacMenu.classList.toggle("active");
-menuClose.onclick = () => rimacMenu.classList.remove("active");
+menuBtn.onclick = () => {
+  rimacMenu.classList.toggle("active");
+};
+
+menuClose.onclick = () => {
+  rimacMenu.classList.remove("active");
+};
 
 function openPage(page){
   window.location.href=page;
