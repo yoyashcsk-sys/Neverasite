@@ -34,27 +34,12 @@ html,body{
   justify-content:center;
   align-items:center;
   z-index:500;
+  border-bottom:1px solid rgba(255,0,0,0.2);
 }
 
-/* CENTER LOGO */
 .nav-logo{
   height:65px;
-  width:auto;
   object-fit:contain;
-}
-
-/* iPad / Tablet */
-@media (min-width:768px){
-  .nav-logo{
-    height:75px;
-  }
-}
-
-/* Desktop */
-@media (min-width:1024px){
-  .nav-logo{
-    height:80px;
-  }
 }
 
 /* MENU BTN */
@@ -92,12 +77,14 @@ html,body{
   width:100%;
   height:100%;
   object-fit:cover;
+  pointer-events:none;
 }
 .section::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.45); /* ORIGINAL SAFE */
+  pointer-events:none;
 }
 
 /* CONTENT */
@@ -115,95 +102,83 @@ h1,h2{
 h1{font-size:clamp(2.5rem,5vw,4.5rem)}
 h2{font-size:clamp(2rem,4vw,3rem)}
 
-.tight{letter-spacing:0}
-.spaced{letter-spacing:.25em}
-
 p{opacity:.9;line-height:1.6}
 
-/* BUTTON */
+/* BUTTON (SAFE RED) */
 button{
   margin-top:30px;
   padding:14px 48px;
-  border:1px solid rgba(255,255,255,.6);
+  border:1px solid rgba(255,0,0,.5);
   background:transparent;
   color:#fff;
   letter-spacing:.3em;
   cursor:pointer;
   transition:.4s;
-  backdrop-filter:blur(10px);
 }
 button:hover{
-  background:#fff;
-  color:#000;
+  background:#ff0000;
+  color:#fff;
 }
 
-/* FORM */
+/* CONTATTI SECTION ONLY (CONTROLLED CHANGE) */
 .contatti{
-  background:#fff;
-  color:#000;
-}
-.contatti input,
-.contatti textarea{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:1px solid #ccc;
+  background:#000;
+  color:#fff;
 }
 
-/* CONTACT */
-.contact-info-section{
-  text-align:left;
-  margin-bottom:30px;
-}
-.contact-info-section h3{
-  font-size:20px;
-  font-weight:500;
-  color:#111;
-  margin-bottom:20px;
-}
-.contact-info-item{
-  display:flex;
-  align-items:center;
-  margin-bottom:12px;
-  font-size:16px;
-  color:#555;
-}
-.contact-info-item .icon{
-  margin-right:10px;
-}
-
-/* CONTATTI */
-.section.contatti{
-  position:relative;
-  height:auto;
-  min-height:100vh;
-  overflow-y:auto;
-  align-items:flex-start;
-  padding-top:70px;
-  padding-bottom:120px;
-  scroll-behavior:smooth;
-}
-
+/* FORM BOX */
 .section.contatti .content{
   width:100%;
   max-width:600px;
   margin:auto;
   padding:40px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.2);
   border-radius:12px;
+
+  background:rgba(20,20,20,0.9);
+  border:1px solid rgba(255,0,0,0.2);
+  box-shadow:0 0 25px rgba(255,0,0,0.15);
 }
 
+/* INPUTS */
+.contatti input,
+.contatti textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:1px solid #333;
+  background:#0d0d0d;
+  color:#fff;
+  border-radius:6px;
+}
+
+.contatti input:focus,
+.contatti textarea:focus{
+  border-color:#ff0000;
+  outline:none;
+}
+
+/* CONTACT TEXT */
+.contact-info-section h3{
+  color:#ddd;
+}
+.contact-info-item{
+  color:#aaa;
+}
+.contact-info-item a{
+  color:#ff2a2a;
+}
+
+/* SUBMIT BUTTON */
 .contatti button{
-  display:block;
   width:100%;
   padding:14px;
   margin-top:20px;
   margin-bottom:40px;
-  position:relative;
-  z-index:5;
+  background:#ff0000;
+  border:none;
 }
 
-/* LEFT MENU */
+/* LEFT MENU (UNCHANGED STRUCTURE) */
 .section-index{
   position:fixed;
   left:30px;
@@ -215,16 +190,19 @@ button:hover{
 }
 .section-index a{
   color:#fff;
-  text-decoration:none;
   opacity:.35;
+  text-decoration:none;
 }
-.section-index a.active{opacity:1}
+.section-index a.active{
+  opacity:1;
+  color:#ff2a2a;
+}
 
-/* RIGHT MENU (ONLY CHANGE DONE HERE) */
+/* RIGHT MENU (EXACT SAME) */
 .rimac-menu{
   position:fixed;
   inset:0;
-  background:#000; /* ✅ BLACK FIX */
+  background:#000;
   z-index:1000;
   opacity:0;
   pointer-events:none;
@@ -247,6 +225,9 @@ button:hover{
   margin-bottom:20px;
   color:#fff;
 }
+.main-links a:hover{
+  color:#ff2a2a;
+}
 
 /* CLOSE BTN */
 #menuClose{
@@ -268,7 +249,7 @@ button:hover{
   text-decoration:none;
   z-index:200;
 }
-.privacy-link:hover{color:#fff}
+.privacy-link:hover{color:#ff2a2a}
 </style>
 </head>
 
@@ -431,7 +412,6 @@ function syncIndex(){
 
 Observer.create({
   type:"wheel,touch",
-
   onDown:()=>{
     if(window.innerWidth <= 1024){
       goTo((current-1+sections.length)%sections.length);
@@ -439,7 +419,6 @@ Observer.create({
       goTo((current+1)%sections.length);
     }
   },
-
   onUp:()=>{
     if(window.innerWidth <= 1024){
       goTo((current+1)%sections.length);
@@ -447,7 +426,6 @@ Observer.create({
       goTo((current-1+sections.length)%sections.length);
     }
   }
-
 });
 
 indexLinks.forEach(link=>{
