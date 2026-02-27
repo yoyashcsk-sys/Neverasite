@@ -9,11 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:'Inter',sans-serif;
@@ -22,8 +18,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
   position:relative;
   height:100vh;
@@ -67,31 +62,25 @@ body{
   margin:auto;
 }
 
-/* ================= SCROLL ARROW ================= */
-
+/* SCROLL */
 .scroll-down{
   margin-top:20px;
   font-size:22px;
-  color:white;
-  opacity:0.8;
+  opacity:.8;
   animation:bounce 1.5s infinite;
-  text-align:center;
 }
 
 @keyframes bounce{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(8px); }
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(8px);}
 }
 
-/* ================= SECTION ================= */
-
+/* ABOUT */
 .section{
   padding:100px 20px;
   background:#0a0a0a;
   text-align:center;
 }
-
-/* IMAGE */
 
 .center-image{
   display:flex;
@@ -113,8 +102,6 @@ body{
   transform:scale(1.05);
   box-shadow:0 0 40px rgba(255,44,44,.4);
 }
-
-/* TEXT */
 
 .center-text{
   max-width:800px;
@@ -139,8 +126,6 @@ body{
   margin-bottom:20px;
 }
 
-/* BUTTON */
-
 .button{
   display:inline-block;
   margin-top:40px;
@@ -158,8 +143,7 @@ body{
   box-shadow:0 0 20px rgba(255,44,44,.6);
 }
 
-/* ================= TEAM SECTION ================= */
-
+/* TEAM */
 .team-section{
   padding:100px 20px;
   background:#050505;
@@ -181,12 +165,12 @@ body{
 .team-container{
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:40px;
   flex-wrap:wrap;
 }
 
 .team-card{
-  width:280px;
+  width:320px;
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.1);
   border-radius:12px;
@@ -197,13 +181,13 @@ body{
 
 .team-card img{
   width:100%;
-  height:320px;
+  height:340px;
   object-fit:cover;
+  transition:.5s;
 }
 
 .team-card h3{
   margin:15px 0 5px;
-  letter-spacing:.1em;
 }
 
 .team-card .role{
@@ -214,21 +198,26 @@ body{
 
 .team-card .desc{
   font-size:.9rem;
-  opacity:.75;
-  padding:0 15px 20px;
-  line-height:1.6;
+  opacity:.8;
+  padding:0 20px 25px;
+  line-height:1.7;
+  text-align:left;
 }
 
 .team-card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 0 25px rgba(255,44,44,0.4);
+  transform:translateY(-12px) scale(1.04);
+  box-shadow:0 0 40px rgba(255,44,44,0.6);
+  border:1px solid rgba(255,44,44,0.4);
+}
+
+.team-card:hover img{
+  transform:scale(1.08);
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
-  .hero h1{
-    letter-spacing:.15em;
+  .team-container{
+    gap:25px;
   }
 }
 </style>
@@ -238,32 +227,27 @@ body{
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline preload="auto">
+  <video autoplay muted loop playsinline>
     <source src="chi-siamo.mp4" type="video/mp4">
   </video>
 
   <div class="hero-content">
     <h1>CHI SIAMO</h1>
     <p>Passione, esperienza e qualità nel mondo automotive.</p>
-
     <div class="scroll-down">↓</div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section">
-
   <div class="center-image">
     <img src="simone.jpg" alt="Simone Rebeschi">
   </div>
 
   <div class="center-text">
-
     <h2>SIMONE REBESCHI</h2>
 
-    <p class="tagline">
-      LA MIA PASSIONE AL SERVIZIO DEI CLIENTI
-    </p>
+    <p class="tagline">LA MIA PASSIONE AL SERVIZIO DEI CLIENTI</p>
 
     <p>
       Nel settore automobilistico dall’età di 14 anni per pura passione,
@@ -294,38 +278,39 @@ body{
     </p>
 
     <a href="index.html" class="button">BACK HOME</a>
-
   </div>
-
 </section>
 
-<!-- TEAM SECTION -->
-
+<!-- TEAM -->
 <section class="team-section">
   <h2 class="team-title">IL NOSTRO TEAM</h2>
-  <p class="team-subtitle">Esperti. Precisi. Affidabili.</p>
+  <p class="team-subtitle">Professionalità. Precisione. Fiducia.</p>
 
   <div class="team-container">
 
+    <!-- FEDERICO -->
     <div class="team-card">
-      <img src="team1.jpg">
-      <h3>Team Lead</h3>
-      <p class="role">Founder & Automotive Specialist</p>
-      <p class="desc">Esperienza e passione per offrire il massimo livello di servizio.</p>
+      <img src="federico.jpg" alt="Federico Rebeschi">
+      <h3>Federico Rebeschi</h3>
+      <p class="role">Specialista in Car Detailing Professionale</p>
+      <p class="desc">
+        Professionista con attestato Car Detail, specializzato in lucidatura auto,
+        correzione dei difetti della vernice e protezione della carrozzeria.
+        Punto di riferimento per il car detailing in Ticino, lavora con tecniche avanzate
+        e massima attenzione ai dettagli per risultati di livello superiore.
+      </p>
     </div>
 
+    <!-- ANDREA -->
     <div class="team-card">
-      <img src="team2.jpg">
-      <h3>Detailing Expert</h3>
-      <p class="role">Car Care Specialist</p>
-      <p class="desc">Precisione e attenzione ai dettagli per risultati impeccabili.</p>
-    </div>
-
-    <div class="team-card">
-      <img src="team3.jpg">
-      <h3>Client Manager</h3>
-      <p class="role">Customer Relations</p>
-      <p class="desc">Sempre al tuo servizio per un’esperienza premium.</p>
+      <img src="andrea.jpg" alt="Andrea Cantoni">
+      <h3>Andrea Cantoni</h3>
+      <p class="role">Tecnico specializzato in preparazione e cura veicoli</p>
+      <p class="desc">
+        Si occupa della preparazione tecnica e della cura approfondita di interni ed esterni,
+        garantendo standard elevati nel processo di car detailing professionale.
+        Precisione, affidabilità e attenzione ai dettagli sono alla base di ogni intervento.
+      </p>
     </div>
 
   </div>
