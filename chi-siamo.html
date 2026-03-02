@@ -92,6 +92,7 @@ body{
   width:320px;
   height:380px;
   object-fit:cover;
+  object-position:center top;
   border-radius:8px;
   border:1px solid rgba(255,255,255,.15);
   box-shadow:0 10px 40px rgba(0,0,0,.6);
@@ -177,33 +178,46 @@ body{
   overflow:hidden;
   backdrop-filter:blur(10px);
   transition:.4s;
+  display:flex;
+  flex-direction:column;
 }
 
+/* IMAGE FIX */
 .team-card img{
   width:100%;
   height:340px;
   object-fit:cover;
+  object-position:center top;
   transition:.5s;
 }
 
-.team-card h3{
-  margin:15px 0 5px;
+/* CONTENT ALIGNMENT */
+.team-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+  text-align:center;
+  min-height:280px;
 }
 
-.team-card .role{
+.team-content h3{
+  margin-bottom:8px;
+}
+
+.team-content .role{
   font-size:.85rem;
   opacity:.6;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-.team-card .desc{
+.team-content .desc{
   font-size:.9rem;
   opacity:.8;
-  padding:0 20px 25px;
   line-height:1.7;
-  text-align:left;
 }
 
+/* HOVER */
 .team-card:hover{
   transform:translateY(-12px) scale(1.04);
   box-shadow:0 0 40px rgba(255,44,44,0.6);
@@ -246,7 +260,6 @@ body{
 
   <div class="center-text">
     <h2>SIMONE REBESCHI</h2>
-
     <p class="tagline">LA MIA PASSIONE AL SERVIZIO DEI CLIENTI</p>
 
     <p>
@@ -291,26 +304,30 @@ body{
     <!-- FEDERICO -->
     <div class="team-card">
       <img src="federico.jpg" alt="Federico Rebeschi">
-      <h3>Federico Rebeschi</h3>
-      <p class="role">Specialista in Car Detailing Professionale</p>
-      <p class="desc">
-        Professionista con attestato Car Detail, specializzato in lucidatura auto,
-        correzione dei difetti della vernice e protezione della carrozzeria.
-        Punto di riferimento per il car detailing in Ticino, lavora con tecniche avanzate
-        e massima attenzione ai dettagli per risultati di livello superiore.
-      </p>
+      <div class="team-content">
+        <h3>Federico Rebeschi</h3>
+        <p class="role">Specialista in Car Detailing Professionale</p>
+        <p class="desc">
+          Professionista con attestato Car Detail, specializzato in lucidatura auto,
+          correzione dei difetti della vernice e protezione della carrozzeria.
+          Punto di riferimento per il car detailing in Ticino, lavora con tecniche avanzate
+          e massima attenzione ai dettagli per risultati di livello superiore.
+        </p>
+      </div>
     </div>
 
     <!-- ANDREA -->
     <div class="team-card">
       <img src="andrea.jpg" alt="Andrea Cantoni">
-      <h3>Andrea Cantoni</h3>
-      <p class="role">Tecnico specializzato in preparazione e cura veicoli</p>
-      <p class="desc">
-        Si occupa della preparazione tecnica e della cura approfondita di interni ed esterni,
-        garantendo standard elevati nel processo di car detailing professionale.
-        Precisione, affidabilità e attenzione ai dettagli sono alla base di ogni intervento.
-      </p>
+      <div class="team-content">
+        <h3>Andrea Cantoni</h3>
+        <p class="role">Tecnico specializzato in preparazione e cura veicoli</p>
+        <p class="desc">
+          Si occupa della preparazione tecnica e della cura approfondita di interni ed esterni,
+          garantendo standard elevati nel processo di car detailing professionale.
+          Precisione, affidabilità e attenzione ai dettagli sono alla base di ogni intervento.
+        </p>
+      </div>
     </div>
 
   </div>
